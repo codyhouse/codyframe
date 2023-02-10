@@ -12,7 +12,7 @@
 
 ## Quick start
 
-If you prefer working with SASS, create a style.scss file and import CodyFrame:
+If you prefer working with SASS, create a **style.scss** file and import CodyFrame:
 
 ```scss
 @use 'https://unpkg.com/codyframe/main/css/reset.css';
@@ -57,15 +57,6 @@ If you install CodyFrame as npm module, remember to point the CDN links to the n
 @use 'https://unpkg.com/codyframe/main/css/reset.css';
 // ↓
 @use '../../../node_modules/codyframe/main/css/reset.css';
-```
-
-If you're importing the CodyHouse components, import the **util.js** file before importing the javascript of the components:
-
-```html
-<body>
-  <!-- ... -->
-  <script src="https://unpkg.com/codyframe/main/js/util.js"></script>
-</body>
 ```
 
 ## Documentation
