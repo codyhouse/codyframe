@@ -1,0 +1,452 @@
+@use 'sass:math';
+@use 'sass:string';
+@use 'sass:list';
+@use 'sass:map';
+@use 'sass:meta';
+
+// functions
+@function str-remove-whitespace($str) {
+  @while (str-index($str, ' ') != null) {
+    $index: str-index($str, ' ');
+    $str: "#{str-slice($str, 0, $index - 1)}#{str-slice($str, $index + 1)}";
+  }
+  @return $str;
+}
+
+@function str-replace($string, $search, $replace: '') {
+  $index: str-index($string, $search);
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+  @return $string;
+}
+
+@function get-hsl-values($hsl) {
+  $index-1: string.index($hsl, ",");
+  $hue: string.slice($hsl, 1, $index-1 - 1);
+  $list: (#{$hue});
+  $remaining: string.slice($hsl, $index-1 + 1, -1);
+  $index-2: string.index($remaining, ",");
+  $saturation: str-remove-whitespace(string.slice($remaining, 1, $index-2 - 1));
+  $list: list.append($list, #{$saturation});
+  $remaining: str-remove-whitespace(string.slice($remaining, $index-2 + 1, -1));
+  $list: list.append($list, #{$remaining});
+  @return $list;
+}
+
+// return color with different opacity value
+@function alpha($color, $alpha) {
+  $color: str-replace($color, 'var(');
+  $color: str-replace($color, ')');
+  $color-h: var(#{$color+'-h'});
+  $color-s: var(#{$color+'-s'});
+  $color-l: var(#{$color+'-l'});
+  @return hsla($color-h, $color-s, $color-l, $alpha);
+}
+
+// return color with different lightness value
+@function lightness($color, $lightness-multiplier) {
+  $color: str-replace($color, 'var(');
+  $color: str-replace($color, ')');
+  $color-h: var(#{$color+'-h'});
+  $color-s: var(#{$color+'-s'});
+  $color-l: var(#{$color+'-l'});
+  @return hsl($color-h, $color-s, calc(#{$color-l} * #{$lightness-multiplier}));
+}
+
+// modify color HSLA values
+@function adjust-hsla($color, $hue-multiplier: 1, $saturation-multiplier: 1, $lightness-multiplier: 1, $alpha: 1) {
+  $color: str-replace($color, 'var(');
+  $color: str-replace($color, ')');
+  $color-h: var(#{$color+'-h'});
+  $color-s: var(#{$color+'-s'});
+  $color-l: var(#{$color+'-l'});
+  @return hsla(calc(#{$color-h} * #{$hue-multiplier}), calc(#{$color-s} * #{$saturation-multiplier}), calc(#{$color-l} * #{$lightness-multiplier}), $alpha);
+}
+
+// define HSL color variable
+@mixin define-hsl-color($color, $hue, $saturation, $lightness) {
+  #{$color}-h: #{$hue};#{$color}-s: #{$saturation};#{$color}-l: #{$lightness};#{$color}: hsl(var(#{$color}-h), var(#{$color}-s), var(#{$color}-l));
+}
+
+// breakpoints
+$breakpoints: (
+  'xs': '32rem',
+  'sm': '48rem',
+  'md': '64rem',
+  'lg': '80rem',
+  'xl': '90rem'
+) !default;
+
+@mixin min-width($breakpoint) {
+  @media (min-width: map-get($map: $breakpoints, $key: $breakpoint)) { @content; }
+}
+
+@mixin max-width($breakpoint) {
+  @media not all and (min-width: map-get($map: $breakpoints, $key: $breakpoint)) { @content; }
+}
+
+// grid
+$grid-columns: 12 !default;
+
+// spacing
+$spacing: (
+  '@all': (
+    '4xs': '0.125rem',
+    '3xs': '0.25rem',
+    '2xs': '0.375rem',
+    'xs': '0.5rem',
+    'sm': '0.75rem',
+    'md': '1.25rem',
+    'lg': '2rem',
+    'xl': '3.25rem',
+    '2xl': '5.25rem',
+    '3xl': '8.5rem',
+    '4xl': '13.75rem'
+  ),
+  '@md': (
+    '4xs': '0.1875rem',
+    '3xs': '0.375rem',
+    '2xs': '0.5625rem',
+    'xs': '0.75rem',
+    'sm': '1.125rem',
+    'md': '2rem',
+    'lg': '3.125rem',
+    'xl': '5.125rem',
+    '2xl': '8.25rem',
+    '3xl': '13.25rem',
+    '4xl': '21.5rem'
+  )
+) !default;
+
+// font-family
+$font-family: (
+  'primary': 'system-ui, sans-serif'
+) !default;
+
+// font-size
+$font-size: (
+  '@all': (
+    'xs': '0.6875rem',
+    'sm': '0.8125rem',
+    'base': '1rem',
+    'md': '1.1875rem',
+    'lg': '1.4375rem',
+    'xl': '1.75rem',
+    '2xl': '2.0625rem',
+    '3xl': '2.5rem',
+    '4xl': '3rem'
+  ),
+  '@md': (
+    'xs': '0.75rem',
+    'sm': '0.9375rem',
+    'base': '1.125rem',
+    'md': '1.375rem',
+    'lg': '1.625rem',
+    'xl': '2rem',
+    '2xl': '2.5rem',
+    '3xl': '3rem',
+    '4xl': '3.625rem'
+  )
+) !default;
+
+// line-height
+$line-height: (
+  'xs': '1.1',
+  'sm': '1.2',
+  'md': '1.4',
+  'lg': '1.58',
+  'xl': '1.72'
+) !default;
+
+// colors
+$colors: (
+  'default': (
+    'primary': (
+      'darker': '250, 84%, 38%',
+      'dark': '250, 84%, 46%',
+      'base': '250, 84%, 54%',
+      'light': '250, 84%, 60%',
+      'lighter': '250, 84%, 67%'
+    ),
+    'accent': (
+      'darker': '342, 89%, 38%',
+      'dark': '342, 89%, 43%',
+      'base': '342, 89%, 48%',
+      'light': '342, 89%, 56%',
+      'lighter': '342, 89%, 62%'
+    ),
+    'black': (
+      'base': '230, 13%, 9%'
+    ),
+    'white': (
+      'base': '0, 0%, 100%'
+    ),
+    'warning': (
+      'darker': '35, 79%, 48%',
+      'dark': '35, 79%, 56%',
+      'base': '35, 79%, 66%',
+      'light': '35, 79%, 74%',
+      'lighter': '35, 79%, 82%'
+    ),
+    'success': (
+      'darker': '170, 78%, 26%',
+      'dark': '170, 78%, 31%',
+      'base': '170, 78%, 36%',
+      'light': '170, 78%, 42%',
+      'lighter': '170, 78%, 47%'
+    ),
+    'error': (
+      'darker': '342, 89%, 38%',
+      'dark': '342, 89%, 43%',
+      'base': '342, 89%, 48%',
+      'light': '342, 89%, 56%',
+      'lighter': '342, 89%, 62%'
+    ),
+    'bg': (
+      'darker': '240, 4%, 90%',
+      'dark': '240, 4%, 95%',
+      'base': '0, 0%, 100%',
+      'light': '0, 0%, 100%',
+      'lighter': '0, 0%, 100%'
+    ),
+    'contrast': (
+      'lower': '240, 4%, 85%',
+      'low': '240, 4%, 65%',
+      'medium': '225, 4%, 47%',
+      'high': '230, 7%, 23%',
+      'higher': '230, 13%, 9%'
+    )
+  ),
+  'dark': (
+    'primary': (
+      'darker': '250, 100%, 60%',
+      'dark': '250, 100%, 64%',
+      'base': '250, 100%, 69%',
+      'light': '250, 100%, 72%',
+      'lighter': '250, 100%, 76%'
+    ),
+    'accent': (
+      'darker': '342, 92%, 41%',
+      'dark': '342, 92%, 47%',
+      'base': '342, 92%, 54%',
+      'light': '342, 92%, 60%',
+      'lighter': '342, 92%, 65%'
+    ),
+    'black': (
+      'base': '230, 13%, 9%'
+    ),
+    'white': (
+      'base': '0, 0%, 100%'
+    ),
+    'warning': (
+      'darker': '35, 79%, 48%',
+      'dark': '35, 79%, 56%',
+      'base': '35, 79%, 66%',
+      'light': '35, 79%, 74%',
+      'lighter': '35, 79%, 82%'
+    ),
+    'success': (
+      'darker': '170, 78%, 26%',
+      'dark': '170, 78%, 31%',
+      'base': '170, 78%, 36%',
+      'light': '170, 78%, 42%',
+      'lighter': '170, 78%, 47%'
+    ),
+    'error': (
+      'darker': '342, 92%, 41%',
+      'dark': '342, 92%, 47%',
+      'base': '342, 92%, 54%',
+      'light': '342, 92%, 60%',
+      'lighter': '342, 92%, 65%'
+    ),
+    'bg': (
+      'darker': '232, 7%, 8%',
+      'dark': '233, 8%, 11%',
+      'base': '232, 11%, 15%',
+      'light': '233, 8%, 19%',
+      'lighter': '232, 7%, 22%'
+    ),
+    'contrast': (
+      'lower': '240, 6%, 26%',
+      'low': '240, 3%, 41%',
+      'medium': '231, 3%, 57%',
+      'high': '240, 5%, 82%',
+      'higher': '240, 100%, 99%'
+    )
+  )
+) !default;
+
+$gradients: () !default;
+
+// aspect-ratio
+$aspect-ratio: (16 9, 3 2, 4 3, 5 4, 1 1, 4 5, 3 4, 2 3, 9 16) !default;
+
+// media-wrapper
+$media-wrapper: (16 9, 3 2, 4 3, 1 1) !default;
+
+// width
+$width: (
+  '4xs': '0.25rem',
+  '3xs': '0.5rem',
+  '2xs': '0.75rem',
+  'xs': '1rem',
+  'sm': '1.5rem',
+  'md': '2rem',
+  'lg': '3rem',
+  'xl': '4rem',
+  '2xl': '6rem',
+  '3xl': '8rem',
+  '4xl': '16rem',
+  0: '0',
+  10\%: '10%',
+  20\%: '20%',
+  25\%: '25%',
+  30\%: '30%',
+  33\%: '33%',
+  40\%: '40%',
+  50\%: '50%',
+  60\%: '60%',
+  70\%: '70%',
+  75\%: '75%',
+  80\%: '80%',
+  90\%: '90%',
+  100\%: '100%'
+) !default;
+
+// height
+$height: (
+  '4xs': '0.25rem',
+  '3xs': '0.5rem',
+  '2xs': '0.75rem',
+  'xs': '1rem',
+  'sm': '1.5rem',
+  'md': '2rem',
+  'lg': '3rem',
+  'xl': '4rem',
+  '2xl': '6rem',
+  '3xl': '8rem',
+  '4xl': '16rem',
+  0: '0',
+  10\%: '10%',
+  20\%: '20%',
+  25\%: '25%',
+  30\%: '30%',
+  33\%: '33%',
+  40\%: '40%',
+  50\%: '50%',
+  60\%: '60%',
+  70\%: '70%',
+  75\%: '75%',
+  80\%: '80%',
+  90\%: '90%',
+  100\%: '100%'
+) !default;
+
+// max-width
+$max-width: (
+  '3xs': '20rem',
+  '2xs': '26rem',
+  'xs': '32rem',
+  'sm': '48rem',
+  'md': '64rem',
+  'lg': '80rem',
+  'xl': '90rem'
+) !default;
+
+$container-margin-x: var(--space-md) !default;
+
+// box-shadow
+$box-shadow: (
+  'ring': '0 0 0 1px hsla(var(--color-black-h), var(--color-black-s), var(--color-black-l), 0.05)',
+  'xs': '0 0 0 1px hsla(var(--color-black-h), var(--color-black-s), var(--color-black-l), 0.02), 0 1px 3px -1px hsla(var(--color-black-h), var(--color-black-s), var(--color-black-l), 0.2)',
+  'sm': '0 0.3px 0.4px hsla(var(--color-black-h), var(--color-black-s), var(--color-black-l), 0.02), 0 0.9px 1.5px hsla(var(--color-black-h), var(--color-black-s), var(--color-black-l), 0.045), 0 3.5px 6px hsla(var(--color-black-h), var(--color-black-s), var(--color-black-l), 0.09)',
+  'md': '0 0.9px 1.25px hsla(var(--color-black-h), var(--color-black-s), var(--color-black-l), 0.025), 0 3px 5px hsla(var(--color-black-h), var(--color-black-s), var(--color-black-l), 0.05), 0 12px 20px hsla(var(--color-black-h), var(--color-black-s), var(--color-black-l), 0.09)',
+  'lg': '0 1.2px 1.9px -1px hsla(var(--color-black-h), var(--color-black-s), var(--color-black-l), 0.01), 0 3px 5px -1px hsla(var(--color-black-h), var(--color-black-s), var(--color-black-l), 0.015), 0 8px 15px -1px hsla(var(--color-black-h), var(--color-black-s), var(--color-black-l), 0.05), 0 28px 40px -1px hsla(var(--color-black-h), var(--color-black-s), var(--color-black-l), 0.1)',
+  'xl': '0 1.5px 2.1px -6px hsla(var(--color-black-h), var(--color-black-s), var(--color-black-l), 0.009), 0 3.6px 5.2px -6px hsla(var(--color-black-h), var(--color-black-s), var(--color-black-l), 0.0115), 0 7.3px 10.6px -6px hsla(var(--color-black-h), var(--color-black-s), var(--color-black-l), 0.0125), 0 16.2px 21.9px -6px hsla(var(--color-black-h), var(--color-black-s), var(--color-black-l), 0.025), 0 46px 60px -6px hsla(var(--color-black-h), var(--color-black-s), var(--color-black-l), 0.15)'
+) !default;
+
+// inner-glow
+$inner-glow: (
+  'glow': 'inset 0 0 0.5px 1px hsla(var(--color-white-h), var(--color-white-s), var(--color-white-l), 0.075)',
+  'glow-top': 'inset 0 0 0.5px 1px hsla(var(--color-white-h), var(--color-white-s), var(--color-white-l), 0.075)'
+) !default;
+
+// border-radius
+$border-radius: (
+  'sm': '0.1875em',
+  'md': '0.375em',
+  'lg': '0.75em'
+) !default;
+
+// reset user agent style
+@mixin reset {
+  background-color: transparent;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  color: inherit;
+  line-height: inherit;
+  appearance: none;
+}
+
+// accessibility → hide
+@mixin srHide {
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+}
+
+// accessibility → show
+@mixin srShow {
+  position: static;
+  clip: auto;
+  clip-path: none;
+}
+
+// edit font rendering
+@mixin fontSmooth {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// triangle
+@mixin triangle ($direction: up, $width: 12px, $color: red) {
+  width: 0;
+  height: 0;
+  border: $width solid transparent;
+
+  @if( $direction == left ) {
+    border-right-color: $color;
+  } @else if( $direction == right ) {
+    border-left-color: $color;
+  } @else if( $direction == down ) {
+    border-top-color: $color;
+  } @else {
+    border-bottom-color: $color;
+  }
+}
+
+// breakpoint (deprecated → use the min-width mixin)
+@mixin breakpoint($breakpoint, $logic: false) {
+  @if( $logic ) {
+    @media #{$logic} and (min-width: map-get($map: $breakpoints, $key: $breakpoint)) { @content; }
+  } @else {
+    @media (min-width: map-get($map: $breakpoints, $key: $breakpoint)) { @content; }
+  }
+}
+
+// define HSL color variables (deprecated → use the define-hsl-color mixin)
+@mixin defineColorHSL($color, $hue, $saturation, $lightness) {
+  #{$color}: unquote("hsl(#{$hue}, #{$saturation}, #{$lightness})");#{$color}-h: #{$hue};#{$color}-s: #{$saturation};#{$color}-l: #{$lightness};
+}
+
+// modify color HSLA values (deprecated → use the adjust-hsla mixin)
+@function adjustHSLA($color, $hue-multiplier: 1, $saturation-multiplier: 1, $lightness-multiplier: 1, $alpha: 1) {
+  $color: str-replace($color, 'var(');
+  $color: str-replace($color, ')');
+  $color-h: var(#{$color+'-h'});
+  $color-s: var(#{$color+'-s'});
+  $color-l: var(#{$color+'-l'});
+  @return hsla(calc(#{$color-h} * #{$hue-multiplier}), calc(#{$color-s} * #{$saturation-multiplier}), calc(#{$color-l} * #{$lightness-multiplier}), $alpha);
+}

@@ -1,0 +1,234 @@
+@use 'config' as *;
+// --- 👆 update this path if you're importing CodyFrame as npm module 
+// e.g., '../../../node_modules/codyhouse-framework/main/scss/config'
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  color: var(--color-contrast-high);
+  font-family: var(--font-primary);
+  font-size: var(--text-base);
+  line-height: 1.4;
+}
+
+h1, h2, h3, h4 {
+  color: var(--color-contrast-higher);
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: var(--text-2xl);
+}
+
+h2 {
+  font-size: var(--text-xl);
+}
+
+h3 {
+  font-size: var(--text-lg);
+}
+
+h4 {
+  font-size: var(--text-md);
+}
+
+small {
+  font-size: var(--text-sm);
+}
+
+.link { // default color: --color-primary
+  text-decoration: none;
+  background-image: linear-gradient(to right, currentColor 50%, alpha(var(--color-primary), 0.2) 50%);
+  background-size: 200% 1px;
+  background-repeat: no-repeat;
+  background-position: 100% 100%;
+  transition: background-position 0.2s;
+
+  &.color-accent {
+    background-image: linear-gradient(to right, currentColor 50%, alpha(var(--color-accent), 0.2) 50%);
+  }
+
+  &.color-contrast-higher {
+    background-image: linear-gradient(to right, currentColor 50%, alpha(var(--color-contrast-higher), 0.2) 50%);
+  }
+
+  &.color-bg {
+    background-image: linear-gradient(to right, currentColor 50%, alpha(var(--color-bg), 0.2) 50%);
+  }
+
+  &.color-white {
+    background-image: linear-gradient(to right, currentColor 50%, alpha(var(--color-white), 0.2) 50%);
+  }
+
+  &.color-black {
+    background-image: linear-gradient(to right, currentColor 50%, alpha(var(--color-black), 0.2) 50%);
+  }
+  
+  &:hover {
+    background-position: 0% 100%;
+  }
+}
+
+/* text-component */
+.text-component {
+  --heading-line-height: 1.2;
+  --body-line-height: 1.4;
+  --spacing: 1rem;
+
+  line-height: var(--body-line-height);
+
+  > * {
+    margin-bottom: var(--spacing);
+  }
+
+  :where(h1, h2, h3, h4) {
+    margin-top: calc(var(--spacing) * 1.6666666667);
+    line-height: var(--heading-line-height);
+  }
+  
+  :where(ul, ol) {
+    padding-left: 1.25em;
+  }
+  
+  ul :where(ul, ol), 
+  ol :where(ul, ol) {
+    padding-left: 1em;
+  }
+  
+  ul {
+    list-style-type: disc;
+  }
+  
+  ol {
+    list-style-type: decimal;
+  }
+  
+  ul li::marker, 
+  ol li::marker {
+    color: alpha(var(--color-contrast-higher), 0.25);
+  }
+  
+  img {
+    margin: 0 auto;
+    border-radius: var(--radius-md);
+  }
+  
+  figcaption {
+    margin-top: calc(var(--spacing) / 2);
+    font-size: var(--text-sm);
+    color: var(--color-contrast-low);
+    text-align: center;
+  }
+  
+  em {
+    font-style: italic;
+  }
+  
+  strong {
+    font-weight: bold;
+  }
+  
+  s {
+    text-decoration: line-through;
+  }
+  
+  u {
+    text-decoration: underline;
+  }
+  
+  mark {
+    background-color: alpha(var(--color-accent), 0.2);
+    color: inherit;
+    border-radius: var(--radius-md);
+    padding: 0 0.25em;
+  }
+  
+  blockquote {
+    padding-left: 1em;
+    border-left: 3px solid alpha(var(--color-contrast-higher), 0.25);
+    font-style: italic;
+  }
+  
+  hr {
+    margin: calc(var(--spacing) * 1.6666666667) 0;
+    background: alpha(var(--color-contrast-higher), 0.1);
+    height: 1px;
+  }
+
+  > *:first-child {
+    margin-top: 0;
+  }
+
+  > *:last-child {
+    margin-bottom: 0;
+  }
+}
+
+/* overflow items */
+:where(.text-component__item-full-width, .text-component__item-overflow, .text-component__item-overflow-left, .text-component__item-overflow-right, .text-component__item-left, .text-component__item-right) img {
+  width: 100%;
+}
+
+.text-component__item-full-width {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+}
+
+@include min-width(sm) {
+  .text-component__item-left,
+  .text-component__item-right,
+  .text-component__item-overflow-left,
+  .text-component__item-overflow-right {
+    width: 45%;
+  }
+
+  .text-component__item-left,
+  .text-component__item-overflow-left {
+    float: left;
+    margin-right: var(--spacing);
+  }
+  
+  .text-component__item-right,
+  .text-component__item-overflow-right {
+    float: right;
+    margin-left: var(--spacing);
+  }
+}
+
+@include min-width(lg) {
+  .text-component__item-overflow,
+  .text-component__item-overflow-left,
+  .text-component__item-overflow-right {
+    --overflow-size: 8rem;
+  }
+  
+  .text-component__item-overflow {
+    width: calc(100% + calc(var(--overflow-size)*2));
+    margin-left: calc(var(--overflow-size) * -1);
+  }
+  
+  .text-component__item-overflow-left {
+    margin-left: calc(var(--overflow-size) * -1);
+  }
+  
+  .text-component__item-overflow-right {
+    margin-right: calc(var(--overflow-size) * -1);
+  }
+}
+
+/* spacing variations */
+.text-component--tight {
+  --heading-line-height: 1.1;
+  --body-line-height: 1.2;
+  --spacing: 0.625rem;
+}
+
+.text-component--relaxed {
+  --heading-line-height: 1.25;
+  --body-line-height: 1.625;
+  --spacing: 1.5rem;
+}

@@ -1,0 +1,60 @@
+/*! purgecss start ignore */
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+
+* {
+  font: inherit;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+body {
+  background-color: var(--color-bg, white);
+}
+
+ol, ul, menu {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+mark {
+  background-color: transparent;
+  color: inherit;
+}
+
+button, input, textarea, select, .reset {
+  background-color: transparent;
+  border-radius: 0;
+  color: inherit;
+  line-height: inherit;
+  appearance: none;
+}
+
+a {
+  color: var(--color-primary, hsl(250, 100%, 69%));
+}
+
+textarea {
+  resize: vertical;
+  overflow: auto;
+  vertical-align: top;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+img, video, svg {
+  max-width: 100%;
+  display: block;
+}
+
+[data-theme] {
+  color: var(--color-contrast-high, hsl(240, 5%, 82%));
+}

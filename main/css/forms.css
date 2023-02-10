@@ -1,0 +1,57 @@
+.form-control {
+  background: var(--color-bg-dark);
+  box-shadow: inset 0 0 0 1px var(--color-contrast-lower);
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-md);
+  font-size: 1em;
+  line-height: 1.2;
+  transition: 0.2s;
+}
+.form-control::-moz-placeholder {
+  opacity: 1;
+  color: var(--color-contrast-low);
+}
+.form-control::placeholder {
+  opacity: 1;
+  color: var(--color-contrast-low);
+}
+.form-control:focus, .form-control:focus-within {
+  background: var(--color-bg);
+  outline: none;
+  box-shadow: inset 0 0 0 1px hsla(var(--color-contrast-lower-h), var(--color-contrast-lower-s), var(--color-contrast-lower-l), 0), 0 0 0 2px var(--color-primary), var(--shadow-sm);
+}
+
+/* disabled */
+.form-control--disabled,
+.form-control[disabled],
+.form-control[readonly] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* error */
+.form-control[aria-invalid=true],
+.form-control.form-control--error {
+  box-shadow: inset 0 0 0 1px hsla(var(--color-contrast-lower-h), var(--color-contrast-lower-s), var(--color-contrast-lower-l), 0), 0 0 0 2px var(--color-error);
+}
+.form-control[aria-invalid=true]:focus, .form-control[aria-invalid=true]:focus-within,
+.form-control.form-control--error:focus,
+.form-control.form-control--error:focus-within {
+  box-shadow: inset 0 0 0 1px hsla(var(--color-contrast-lower-h), var(--color-contrast-lower-s), var(--color-contrast-lower-l), 0), 0 0 0 2px var(--color-error), var(--shadow-sm);
+}
+
+/* legend */
+.form-legend {
+  font-weight: 700;
+  color: var(--color-contrast-higher);
+  line-height: 1.2;
+  font-size: var(--text-md);
+  margin-bottom: var(--space-sm);
+}
+
+/* label */
+.form-label {
+  display: inline-block;
+  font-size: var(--text-sm);
+  margin-bottom: var(--space-2xs);
+}
