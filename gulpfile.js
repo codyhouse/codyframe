@@ -47,5 +47,6 @@ gulp.task('watch', gulp.series(['browserSync'], function () {
     if(file.includes('config.scss') || file.includes('icons.scss')) compileGlobals('icons');
     if(file.includes('config.scss') || file.includes('typography.scss')) compileGlobals('typography');
     if(file.includes('config.scss') || file.includes('util.scss')) compileGlobals('util');
+    if(file.includes('reset.scss')) compileGlobals('reset');
   });
 }));
