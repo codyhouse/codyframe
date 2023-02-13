@@ -12,7 +12,7 @@
 
 ## Quick start
 
-If you prefer working with SASS, create a **style.scss** file and import CodyFrame:
+If you prefer working with SASS, create a style.scss file and import CodyFrame:
 
 ```scss
 @use 'https://unpkg.com/codyframe/main/css/reset.css'; // ← reset
@@ -29,7 +29,7 @@ If you prefer working with SASS, create a **style.scss** file and import CodyFra
 @use 'https://unpkg.com/codyframe/main/scss/util'; // ← utility classes
 ````
 
-The **_config.scss** file is used to customize the framework (i.e., to edit the breakpoints or to change the spacing scale).
+The **_config.scss** file is used to customize the framework (i.e., to edit the breakpoints or to change the spacing scale). More info in our [documentation](https://codyhouse.co/ds/docs/framework).
 
 If you prefer working with CSS (without a preprocessor):
 
