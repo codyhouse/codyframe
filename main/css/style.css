@@ -490,7 +490,7 @@ small {
   color: var(--color-contrast-higher);
   line-height: 1.2;
   font-size: var(--text-md);
-  margin-bottom: var(--space-sm);
+  margin-bottom: var(--space-md);
 }
 
 /* label */

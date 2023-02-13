@@ -57,7 +57,7 @@ npm i codyframe
 yarn add codyframe
 ```
 
-If you install CodyFrame as npm module, import the reset, config and util modules from the node package:
+If you install CodyFrame as npm module, import the reset, config, and util modules from the node package:
 
 ```scss
 @use '../../../node_modules/codyframe/main/scss/reset';
