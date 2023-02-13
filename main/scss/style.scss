@@ -1,6 +1,7 @@
-@use '../css/reset.css';
-@use 'config' as *;
+@use '../css/reset.css'; // ← reset
+@use 'config' as *; // ← customize the framework
 
+// ↓ copy & modify these templates locally
 @use 'typography';
 @use 'icons';
 @use 'buttons';
@@ -8,4 +9,4 @@
 
 // ← import here the CodyHouse components
 
-@use 'util';
+@use 'util'; // ← utility classes

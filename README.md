@@ -15,8 +15,8 @@
 If you prefer working with SASS, create a **style.scss** file and import CodyFrame:
 
 ```scss
-@use 'https://unpkg.com/codyframe/main/css/reset.css';
-@use 'https://unpkg.com/codyframe/main/scss/config' as *;
+@use 'https://unpkg.com/codyframe/main/css/reset.css'; // ← reset
+@use 'https://unpkg.com/codyframe/main/scss/config' as *; // ← customize the framework
 
 // ↓ copy & modify these templates locally
 @use 'typography';
@@ -29,7 +29,9 @@ If you prefer working with SASS, create a **style.scss** file and import CodyFra
 @use 'https://unpkg.com/codyframe/main/scss/util'; // ← utility classes
 ````
 
-If you prefer working with CSS:
+The **_config.scss** file is used to customize the framework (i.e., to edit the breakpoints or to change the spacing scale).
+
+If you prefer working with CSS (without a preprocessor):
 
 ```css
 @import 'https://unpkg.com/codyframe/main/css/reset.css'; /* ← reset */
@@ -48,10 +50,14 @@ If you prefer working with CSS:
 To install the node module:
 
 ```sh
-npm install codyframe
+# using npm
+npm i codyframe
+
+# using Yarn
+yarn add codyframe
 ```
 
-If you install CodyFrame as npm module, remember to point the CDN links to the node module files:
+If you install CodyFrame as npm module, remember to change the CDN links with the paths to the node module files:
 
 ```scss
 @use 'https://unpkg.com/codyframe/main/css/reset.css';
