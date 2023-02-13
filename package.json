@@ -5,6 +5,7 @@
     "gulp": "gulp",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "license": "MIT",
   "devDependencies": {
     "autoprefixer": "^9.4.6",
     "browser-sync": "^2.26.3",
@@ -12,5 +13,10 @@
     "gulp-postcss": "^9.0.1",
     "gulp-sass": "^5.0.0",
     "sass-embedded": "^1.0.0"
+  },
+  "homepage": "https://codyhouse.co",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codyhouse/codyframe.git"
   }
 }
