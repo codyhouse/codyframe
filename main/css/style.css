@@ -39,7 +39,7 @@ button, input, textarea, select, .reset {
 }
 
 a {
-  color: var(--color-primary, hsl(250, 100%, 69%));
+  color: var(--color-primary, hsl(250deg, 100%, 69%));
 }
 
 textarea {
@@ -59,7 +59,7 @@ img, video, svg {
 }
 
 [data-theme] {
-  color: var(--color-contrast-high, hsl(240, 5%, 82%));
+  color: var(--color-contrast-high, hsl(240deg, 5%, 82%));
 }
 
 html {
@@ -336,10 +336,11 @@ small {
   padding: 0.5rem 1rem;
   border-radius: var(--radius-md);
   font-size: 1em;
+  font-weight: 500;
   color: var(--color-contrast-higher);
-  cursor: pointer;
   text-decoration: none;
   line-height: 1.2;
+  cursor: pointer;
   transition: 0.2s;
   will-change: transform;
 }

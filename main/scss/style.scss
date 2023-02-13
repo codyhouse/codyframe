@@ -1,4 +1,4 @@
-@use '../css/reset.css'; // ← reset
+@use 'reset';
 @use 'config' as *; // ← customize the framework
 
 // ↓ copy & modify these templates locally
