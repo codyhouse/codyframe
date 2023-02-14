@@ -29,7 +29,32 @@ If you prefer working with SASS, create a style.scss file and import the CodyFra
 @use 'util'; // ← utility classes
 ````
 
-The **_config.scss** file is used to customize the framework (i.e., to edit the breakpoints or to change the spacing scale). More info in our [documentation](https://codyhouse.co/ds/docs/framework).
+The **_config.scss** file is used to customize the framework (i.e., to edit the breakpoints or to change the spacing scale).
+
+Example:
+
+```scss
+@use 'reset';
+@use 'config' as * with (
+  $breakpoints: (
+    'sm': '48rem',
+    'md': '64rem',
+    'lg': '80rem'
+  ),
+  $font-family: (
+    'primary': 'Inter, system-ui, sans-serif'
+  ),
+  $font-size: (
+    'sm': '0.8125rem',
+    'base': '1rem',
+    'md': '1.1875rem',
+    'lg': '1.4375rem',
+    '2xl': '2.0625rem'
+  )
+);
+
+// ...
+```
 
 If you prefer working with CSS (without a preprocessor):
 
