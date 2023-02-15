@@ -3589,6 +3589,12 @@ small {
 }
 
 /* border */
+[class^=border-], [class*=" border-"] {
+  --border-opacity: 1;
+  --border-width: 1px;
+  --border-style: solid;
+}
+
 .border {
   border: var(--border-width, 1px) var(--border-style, solid) hsla(var(--color-contrast-higher-h), var(--color-contrast-higher-s), var(--color-contrast-higher-l), var(--border-opacity-base, 0.1));
 }
@@ -3627,10 +3633,6 @@ small {
 
 .border-dashed {
   --border-style: dashed;
-}
-
-[class^=border-], [class*=" border-"] {
-  --border-opacity: 1;
 }
 
 .border-primary-darker {

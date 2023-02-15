@@ -1488,6 +1488,12 @@ $responsive-spacing: map.get($spacing, "@all");
 }
 
 /* border */
+[class^="#{$prefix}border-"], [class*=" #{$prefix}border-"] { 
+  --border-opacity: 1;
+  --border-width: 1px;
+  --border-style: solid;
+}
+
 .#{$prefix}border {
   border: var(--border-width, 1px) var(--border-style, solid) hsla(var(--color-contrast-higher-h), var(--color-contrast-higher-s), var(--color-contrast-higher-l), var(--border-opacity-base, 0.1));
 }
@@ -1526,10 +1532,6 @@ $responsive-spacing: map.get($spacing, "@all");
 
 .#{$prefix}border-dashed {
   --border-style: dashed;
-}
-
-[class^="#{$prefix}border-"], [class*=" #{$prefix}border-"] { 
-  --border-opacity: 1;
 }
 
 $color-labels: map.get($colors, "default");
