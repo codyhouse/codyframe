@@ -47,6 +47,10 @@
   --size: 64px;
 }
 
+.icon--3xl {
+  --size: 96px;
+}
+
 /* rotate the icon infinitely */
 .icon--is-spinning { 
   animation: icon-spin 1s infinite linear;
