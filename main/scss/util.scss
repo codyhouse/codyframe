@@ -432,31 +432,11 @@ $responsive-spacing: map.get($spacing, "@all");
   display: none;
 }
 
-.#{$prefix}block\!, .#{$prefix}is-visible { /* .is-visible: legacy class → replace with .block! */
+.#{$prefix}is-visible { /* deprecated */
   display: block !important;
 }
 
-.#{$prefix}inline-block\! {
-  display: inline-block !important;
-}
-
-.#{$prefix}inline\! {
-  display: inline !important;
-}
-
-.#{$prefix}contents\! {
-  display: contents !important;
-}
-
-.#{$prefix}css-grid\! {
-  display: grid !important;
-}
-
-.#{$prefix}css-inline-grid\! {
-  display: inline-grid !important;
-}
-
-.#{$prefix}hide\!, .#{$prefix}is-hidden { /* .is-hidden: legacy class → replace with .hide! */
+.#{$prefix}is-hidden { /* deprecated */
   display: none !important;
 }
 
@@ -2356,34 +2336,6 @@ $grad-labels: map.get($gradients, "default");
 
     .#{$prefix}hide\@#{$breakpoint-name} {
       display: none;
-    }
-
-    .#{$prefix}block\!\@#{$breakpoint-name} {
-      display: block !important;
-    }
-
-    .#{$prefix}inline-block\!\@#{$breakpoint-name} {
-      display: inline-block !important;
-    }
-
-    .#{$prefix}inline\!\@#{$breakpoint-name} {
-      display: inline !important;
-    }
-
-    .#{$prefix}contents\!\@#{$breakpoint-name} {
-      display: contents !important;
-    }
-
-    .#{$prefix}css-grid\!\@#{$breakpoint-name} {
-      display: grid !important;
-    }
-
-    .#{$prefix}css-inline-grid\!\@#{$breakpoint-name} {
-      display: inline-grid !important;
-    }
-
-    .#{$prefix}hide\!\@#{$breakpoint-name} {
-      display: none !important;
     }
 
     /* margin */

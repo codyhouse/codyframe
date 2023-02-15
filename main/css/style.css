@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /*! purgecss start ignore */
 *, *::after, *::before {
   box-sizing: border-box;
@@ -1481,31 +1480,11 @@ small {
   display: none;
 }
 
-.block\!, .is-visible { /* .is-visible: legacy class → replace with .block! */
+.is-visible { /* deprecated */
   display: block !important;
 }
 
-.inline-block\! {
-  display: inline-block !important;
-}
-
-.inline\! {
-  display: inline !important;
-}
-
-.contents\! {
-  display: contents !important;
-}
-
-.css-grid\! {
-  display: grid !important;
-}
-
-.css-inline-grid\! {
-  display: inline-grid !important;
-}
-
-.hide\!, .is-hidden { /* .is-hidden: legacy class → replace with .hide! */
+.is-hidden { /* deprecated */
   display: none !important;
 }
 
@@ -4821,27 +4800,6 @@ small {
   .hide\@xs {
     display: none;
   }
-  .block\!\@xs {
-    display: block !important;
-  }
-  .inline-block\!\@xs {
-    display: inline-block !important;
-  }
-  .inline\!\@xs {
-    display: inline !important;
-  }
-  .contents\!\@xs {
-    display: contents !important;
-  }
-  .css-grid\!\@xs {
-    display: grid !important;
-  }
-  .css-inline-grid\!\@xs {
-    display: inline-grid !important;
-  }
-  .hide\!\@xs {
-    display: none !important;
-  }
   /* margin */
   .margin-4xs\@xs {
     margin: var(--space-4xs);
@@ -6308,27 +6266,6 @@ small {
   }
   .hide\@sm {
     display: none;
-  }
-  .block\!\@sm {
-    display: block !important;
-  }
-  .inline-block\!\@sm {
-    display: inline-block !important;
-  }
-  .inline\!\@sm {
-    display: inline !important;
-  }
-  .contents\!\@sm {
-    display: contents !important;
-  }
-  .css-grid\!\@sm {
-    display: grid !important;
-  }
-  .css-inline-grid\!\@sm {
-    display: inline-grid !important;
-  }
-  .hide\!\@sm {
-    display: none !important;
   }
   /* margin */
   .margin-4xs\@sm {
@@ -7821,27 +7758,6 @@ small {
   .hide\@md {
     display: none;
   }
-  .block\!\@md {
-    display: block !important;
-  }
-  .inline-block\!\@md {
-    display: inline-block !important;
-  }
-  .inline\!\@md {
-    display: inline !important;
-  }
-  .contents\!\@md {
-    display: contents !important;
-  }
-  .css-grid\!\@md {
-    display: grid !important;
-  }
-  .css-inline-grid\!\@md {
-    display: inline-grid !important;
-  }
-  .hide\!\@md {
-    display: none !important;
-  }
   /* margin */
   .margin-4xs\@md {
     margin: var(--space-4xs);
@@ -9309,27 +9225,6 @@ small {
   .hide\@lg {
     display: none;
   }
-  .block\!\@lg {
-    display: block !important;
-  }
-  .inline-block\!\@lg {
-    display: inline-block !important;
-  }
-  .inline\!\@lg {
-    display: inline !important;
-  }
-  .contents\!\@lg {
-    display: contents !important;
-  }
-  .css-grid\!\@lg {
-    display: grid !important;
-  }
-  .css-inline-grid\!\@lg {
-    display: inline-grid !important;
-  }
-  .hide\!\@lg {
-    display: none !important;
-  }
   /* margin */
   .margin-4xs\@lg {
     margin: var(--space-4xs);
@@ -10796,27 +10691,6 @@ small {
   }
   .hide\@xl {
     display: none;
-  }
-  .block\!\@xl {
-    display: block !important;
-  }
-  .inline-block\!\@xl {
-    display: inline-block !important;
-  }
-  .inline\!\@xl {
-    display: inline !important;
-  }
-  .contents\!\@xl {
-    display: contents !important;
-  }
-  .css-grid\!\@xl {
-    display: grid !important;
-  }
-  .css-inline-grid\!\@xl {
-    display: inline-grid !important;
-  }
-  .hide\!\@xl {
-    display: none !important;
   }
   /* margin */
   .margin-4xs\@xl {
