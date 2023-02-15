@@ -765,6 +765,14 @@ $responsive-font-size: map.get($font-size, "@all");
 }
 
 /* font-weight */
+.#{$prefix}font-thin {
+  font-weight: 100;
+}
+
+.#{$prefix}font-extralight {
+  font-weight: 200;
+}
+
 .#{$prefix}font-light {
   font-weight: 300;
 }
