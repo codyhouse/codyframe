@@ -5,7 +5,7 @@
 .form-control {
   background: var(--color-bg-dark);
   box-shadow: inset 0 0 0 1px var(--color-contrast-lower);
-  padding: 0.5rem 0.75rem;
+  padding: var(--space-2xs) var(--space-xs);
   border-radius: var(--radius-md);
 
   font-size: 1em;
