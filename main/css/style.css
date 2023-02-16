@@ -1480,11 +1480,11 @@ small {
   display: none;
 }
 
-.is-visible { /* deprecated */
-  display: block !important;
+.is-visible {
+  display: var(--display, block) !important;
 }
 
-.is-hidden { /* deprecated */
+.is-hidden {
   display: none !important;
 }
 
@@ -4430,7 +4430,7 @@ small {
   .print\:hide, .print\:is-hidden {
     display: none !important;
   }
-  .print\:no-shadow {
+  .print\:shadow-none {
     box-shadow: none;
   }
 }

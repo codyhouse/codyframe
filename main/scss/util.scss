@@ -432,11 +432,11 @@ $responsive-spacing: map.get($spacing, "@all");
   display: none;
 }
 
-.#{$prefix}is-visible { /* deprecated */
-  display: block !important;
+.#{$prefix}is-visible {
+  display: var(--display, block) !important;
 }
 
-.#{$prefix}is-hidden { /* deprecated */
+.#{$prefix}is-hidden {
   display: none !important;
 }
 
@@ -2074,7 +2074,7 @@ $grad-labels: map.get($gradients, "default");
     display: none !important;
   }
 
-  .#{$prefix}print\:no-shadow {
+  .#{$prefix}print\:shadow-none {
     box-shadow: none;
   }
 }
