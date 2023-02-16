@@ -1402,6 +1402,26 @@ $responsive-spacing: map.get($spacing, "@all");
   overscroll-behavior: contain;
 }
 
+/* scroll behavior */
+.#{$prefix}scroll-smooth {
+  scroll-behavior: smooth;
+}
+
+$responsive-spacing: map.get($spacing, "@all");
+@if $responsive-spacing {
+  @each $name, $value in $responsive-spacing {
+    .#{$prefix}scroll-padding-#{$name} {
+      scroll-padding: var(--space-#{$name});
+    }
+  }
+} @else {
+  @each $name, $value in $spacing {
+    .#{$prefix}scroll-padding-#{$name} {
+      scroll-padding: var(--space-#{$name});
+    }
+  }
+}
+
 /* accessibility */
 .#{$prefix}sr-only, .#{$prefix}sr-only-focusable:not(:focus):not(:focus-within) {
   position: absolute;

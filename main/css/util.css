@@ -2997,6 +2997,55 @@
   overscroll-behavior: contain;
 }
 
+/* scroll behavior */
+.scroll-smooth {
+  scroll-behavior: smooth;
+}
+
+.scroll-padding-4xs {
+  scroll-padding: var(--space-4xs);
+}
+
+.scroll-padding-3xs {
+  scroll-padding: var(--space-3xs);
+}
+
+.scroll-padding-2xs {
+  scroll-padding: var(--space-2xs);
+}
+
+.scroll-padding-xs {
+  scroll-padding: var(--space-xs);
+}
+
+.scroll-padding-sm {
+  scroll-padding: var(--space-sm);
+}
+
+.scroll-padding-md {
+  scroll-padding: var(--space-md);
+}
+
+.scroll-padding-lg {
+  scroll-padding: var(--space-lg);
+}
+
+.scroll-padding-xl {
+  scroll-padding: var(--space-xl);
+}
+
+.scroll-padding-2xl {
+  scroll-padding: var(--space-2xl);
+}
+
+.scroll-padding-3xl {
+  scroll-padding: var(--space-3xl);
+}
+
+.scroll-padding-4xl {
+  scroll-padding: var(--space-4xl);
+}
+
 /* accessibility */
 .sr-only, .sr-only-focusable:not(:focus):not(:focus-within) {
   position: absolute;
