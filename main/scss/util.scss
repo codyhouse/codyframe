@@ -1260,6 +1260,10 @@ $glow-selectors: string.slice($glow-selectors, 1, string.length($glow-selectors)
   position: sticky;
 }
 
+.#{$prefix}position-static {
+  position: static;
+}
+
 .#{$prefix}inset-0 {
   inset: 0;
 }
@@ -2728,6 +2732,10 @@ $grad-labels: map.get($gradients, "default");
 
     .#{$prefix}position-sticky\@#{$breakpoint-name} {
       position: sticky;
+    }
+
+    .#{$prefix}position-static\@#{$breakpoint-name} {
+      position: static;
     }
 
     .#{$prefix}inset-0\@#{$breakpoint-name} {

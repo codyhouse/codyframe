@@ -2718,6 +2718,10 @@
   position: sticky;
 }
 
+.position-static {
+  position: static;
+}
+
 .inset-0 {
   inset: 0;
 }
@@ -5212,6 +5216,9 @@
   .position-sticky\@xs {
     position: sticky;
   }
+  .position-static\@xs {
+    position: static;
+  }
   .inset-0\@xs {
     inset: 0;
   }
@@ -6678,6 +6685,9 @@
   }
   .position-sticky\@sm {
     position: sticky;
+  }
+  .position-static\@sm {
+    position: static;
   }
   .inset-0\@sm {
     inset: 0;
@@ -8170,6 +8180,9 @@
   .position-sticky\@md {
     position: sticky;
   }
+  .position-static\@md {
+    position: static;
+  }
   .inset-0\@md {
     inset: 0;
   }
@@ -9637,6 +9650,9 @@
   .position-sticky\@lg {
     position: sticky;
   }
+  .position-static\@lg {
+    position: static;
+  }
   .inset-0\@lg {
     inset: 0;
   }
@@ -11103,6 +11119,9 @@
   }
   .position-sticky\@xl {
     position: sticky;
+  }
+  .position-static\@xl {
+    position: static;
   }
   .inset-0\@xl {
     inset: 0;
