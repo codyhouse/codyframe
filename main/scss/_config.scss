@@ -69,6 +69,9 @@
   #{$color}-h: #{$hue};#{$color}-s: #{$saturation};#{$color}-l: #{$lightness};#{$color}: hsl(var(#{$color}-h), var(#{$color}-s), var(#{$color}-l));
 }
 
+// add a prefix to all the utility classes
+$util-prefix: '' !default;
+
 // breakpoints
 $breakpoints: (
   'xs': '32rem',
