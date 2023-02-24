@@ -2141,6 +2141,7 @@ $grad-labels: map.get($gradients, "default");
       flex: 0 1 auto;
     }
 
+    $grid-offset-class-list: '';
     @for $i from 1 through $grid-columns - 1 {
       $grid-offset-class-list: $grid-offset-class-list + ".#{$util-prefix}offset-#{$i}\\@#{$breakpoint-name}";
       @if($i < $grid-columns) {

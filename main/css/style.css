@@ -33,12 +33,11 @@ button, input, textarea, select, .reset {
   color: inherit;
   line-height: inherit;
   -webkit-appearance: none;
-     -moz-appearance: none;
           appearance: none;
 }
 
 a {
-  color: var(--color-primary, hsl(250deg, 100%, 69%));
+  color: var(--color-primary, hsl(250, 100%, 69%));
 }
 
 textarea {
@@ -58,7 +57,7 @@ img, video, svg {
 }
 
 [data-theme] {
-  color: var(--color-contrast-high, hsl(240deg, 5%, 82%));
+  color: var(--color-contrast-high, hsl(240, 5%, 82%));
 }
 
 html {
@@ -458,10 +457,6 @@ small {
   font-size: 1em;
   line-height: 1.2;
   transition: 0.2s;
-}
-.form-control::-moz-placeholder {
-  opacity: 1;
-  color: var(--color-contrast-low);
 }
 .form-control::placeholder {
   opacity: 1;
@@ -1057,8 +1052,7 @@ small {
 
 .gap-x-4xs {
   --column-gap: var(--space-4xs);
-  -moz-column-gap: var(--column-gap);
-       column-gap: var(--column-gap);
+  column-gap: var(--column-gap);
 }
 
 .gap-y-4xs {
@@ -1074,8 +1068,7 @@ small {
 
 .gap-x-3xs {
   --column-gap: var(--space-3xs);
-  -moz-column-gap: var(--column-gap);
-       column-gap: var(--column-gap);
+  column-gap: var(--column-gap);
 }
 
 .gap-y-3xs {
@@ -1091,8 +1084,7 @@ small {
 
 .gap-x-2xs {
   --column-gap: var(--space-2xs);
-  -moz-column-gap: var(--column-gap);
-       column-gap: var(--column-gap);
+  column-gap: var(--column-gap);
 }
 
 .gap-y-2xs {
@@ -1108,8 +1100,7 @@ small {
 
 .gap-x-xs {
   --column-gap: var(--space-xs);
-  -moz-column-gap: var(--column-gap);
-       column-gap: var(--column-gap);
+  column-gap: var(--column-gap);
 }
 
 .gap-y-xs {
@@ -1125,8 +1116,7 @@ small {
 
 .gap-x-sm {
   --column-gap: var(--space-sm);
-  -moz-column-gap: var(--column-gap);
-       column-gap: var(--column-gap);
+  column-gap: var(--column-gap);
 }
 
 .gap-y-sm {
@@ -1142,8 +1132,7 @@ small {
 
 .gap-x-md {
   --column-gap: var(--space-md);
-  -moz-column-gap: var(--column-gap);
-       column-gap: var(--column-gap);
+  column-gap: var(--column-gap);
 }
 
 .gap-y-md {
@@ -1159,8 +1148,7 @@ small {
 
 .gap-x-lg {
   --column-gap: var(--space-lg);
-  -moz-column-gap: var(--column-gap);
-       column-gap: var(--column-gap);
+  column-gap: var(--column-gap);
 }
 
 .gap-y-lg {
@@ -1176,8 +1164,7 @@ small {
 
 .gap-x-xl {
   --column-gap: var(--space-xl);
-  -moz-column-gap: var(--column-gap);
-       column-gap: var(--column-gap);
+  column-gap: var(--column-gap);
 }
 
 .gap-y-xl {
@@ -1193,8 +1180,7 @@ small {
 
 .gap-x-2xl {
   --column-gap: var(--space-2xl);
-  -moz-column-gap: var(--column-gap);
-       column-gap: var(--column-gap);
+  column-gap: var(--column-gap);
 }
 
 .gap-y-2xl {
@@ -1210,8 +1196,7 @@ small {
 
 .gap-x-3xl {
   --column-gap: var(--space-3xl);
-  -moz-column-gap: var(--column-gap);
-       column-gap: var(--column-gap);
+  column-gap: var(--column-gap);
 }
 
 .gap-y-3xl {
@@ -1227,8 +1212,7 @@ small {
 
 .gap-x-4xl {
   --column-gap: var(--space-4xl);
-  -moz-column-gap: var(--column-gap);
-       column-gap: var(--column-gap);
+  column-gap: var(--column-gap);
 }
 
 .gap-y-4xl {
@@ -1244,8 +1228,7 @@ small {
 
 .gap-x-0 {
   --column-gap: 0px;
-  -moz-column-gap: 0px;
-       column-gap: 0px;
+  column-gap: 0px;
 }
 
 .gap-y-0 {
@@ -2507,23 +2490,19 @@ small {
 
 /* column-count */
 .column-count-1 {
-  -moz-column-count: 1;
-       column-count: 1;
+  column-count: 1;
 }
 
 .column-count-2 {
-  -moz-column-count: 2;
-       column-count: 2;
+  column-count: 2;
 }
 
 .column-count-3 {
-  -moz-column-count: 3;
-       column-count: 3;
+  column-count: 3;
 }
 
 .column-count-4 {
-  -moz-column-count: 4;
-       column-count: 4;
+  column-count: 4;
 }
 
 /* cursor */
@@ -2547,13 +2526,11 @@ small {
 /* user-select */
 .user-select-none {
   -webkit-user-select: none;
-     -moz-user-select: none;
           user-select: none;
 }
 
 .user-select-all {
   -webkit-user-select: all;
-     -moz-user-select: all;
           user-select: all;
 }
 
@@ -4446,13 +4423,11 @@ small {
 /* appearance */
 .appearance-none {
   -webkit-appearance: none;
-     -moz-appearance: none;
           appearance: none;
 }
 
 .appearance-auto {
   -webkit-appearance: auto;
-     -moz-appearance: auto;
           appearance: auto;
 }
 
@@ -4575,7 +4550,7 @@ small {
   .offset-11\@xs {
     --column-offset: 11;
   }
-  .offset-1, .offset-2, .offset-3, .offset-4, .offset-5, .offset-6, .offset-7, .offset-8, .offset-9, .offset-10, .offset-11 {
+  .offset-1\@xs, .offset-2\@xs, .offset-3\@xs, .offset-4\@xs, .offset-5\@xs, .offset-6\@xs, .offset-7\@xs, .offset-8\@xs, .offset-9\@xs, .offset-10\@xs, .offset-11\@xs {
     margin-left: calc((100% - (var(--grid-columns) - 1) * var(--column-gap)) * var(--column-offset) / var(--grid-columns) + var(--column-offset) * var(--column-gap));
   }
   .offset-0\@xs {
@@ -4589,8 +4564,7 @@ small {
   }
   .gap-x-4xs\@xs {
     --column-gap: var(--space-4xs);
-    -moz-column-gap: var(--column-gap);
-         column-gap: var(--column-gap);
+    column-gap: var(--column-gap);
   }
   .gap-y-4xs\@xs {
     --row-gap: var(--space-4xs);
@@ -4603,8 +4577,7 @@ small {
   }
   .gap-x-3xs\@xs {
     --column-gap: var(--space-3xs);
-    -moz-column-gap: var(--column-gap);
-         column-gap: var(--column-gap);
+    column-gap: var(--column-gap);
   }
   .gap-y-3xs\@xs {
     --row-gap: var(--space-3xs);
@@ -4617,8 +4590,7 @@ small {
   }
   .gap-x-2xs\@xs {
     --column-gap: var(--space-2xs);
-    -moz-column-gap: var(--column-gap);
-         column-gap: var(--column-gap);
+    column-gap: var(--column-gap);
   }
   .gap-y-2xs\@xs {
     --row-gap: var(--space-2xs);
@@ -4631,8 +4603,7 @@ small {
   }
   .gap-x-xs\@xs {
     --column-gap: var(--space-xs);
-    -moz-column-gap: var(--column-gap);
-         column-gap: var(--column-gap);
+    column-gap: var(--column-gap);
   }
   .gap-y-xs\@xs {
     --row-gap: var(--space-xs);
@@ -4645,8 +4616,7 @@ small {
   }
   .gap-x-sm\@xs {
     --column-gap: var(--space-sm);
-    -moz-column-gap: var(--column-gap);
-         column-gap: var(--column-gap);
+    column-gap: var(--column-gap);
   }
   .gap-y-sm\@xs {
     --row-gap: var(--space-sm);
@@ -4659,8 +4629,7 @@ small {
   }
   .gap-x-md\@xs {
     --column-gap: var(--space-md);
-    -moz-column-gap: var(--column-gap);
-         column-gap: var(--column-gap);
+    column-gap: var(--column-gap);
   }
   .gap-y-md\@xs {
     --row-gap: var(--space-md);
@@ -4673,8 +4642,7 @@ small {
   }
   .gap-x-lg\@xs {
     --column-gap: var(--space-lg);
-    -moz-column-gap: var(--column-gap);
-         column-gap: var(--column-gap);
+    column-gap: var(--column-gap);
   }
   .gap-y-lg\@xs {
     --row-gap: var(--space-lg);
@@ -4687,8 +4655,7 @@ small {
   }
   .gap-x-xl\@xs {
     --column-gap: var(--space-xl);
-    -moz-column-gap: var(--column-gap);
-         column-gap: var(--column-gap);
+    column-gap: var(--column-gap);
   }
   .gap-y-xl\@xs {
     --row-gap: var(--space-xl);
@@ -4701,8 +4668,7 @@ small {
   }
   .gap-x-2xl\@xs {
     --column-gap: var(--space-2xl);
-    -moz-column-gap: var(--column-gap);
-         column-gap: var(--column-gap);
+    column-gap: var(--column-gap);
   }
   .gap-y-2xl\@xs {
     --row-gap: var(--space-2xl);
@@ -4715,8 +4681,7 @@ small {
   }
   .gap-x-3xl\@xs {
     --column-gap: var(--space-3xl);
-    -moz-column-gap: var(--column-gap);
-         column-gap: var(--column-gap);
+    column-gap: var(--column-gap);
   }
   .gap-y-3xl\@xs {
     --row-gap: var(--space-3xl);
@@ -4729,8 +4694,7 @@ small {
   }
   .gap-x-4xl\@xs {
     --column-gap: var(--space-4xl);
-    -moz-column-gap: var(--column-gap);
-         column-gap: var(--column-gap);
+    column-gap: var(--column-gap);
   }
   .gap-y-4xl\@xs {
     --row-gap: var(--space-4xl);
@@ -4743,8 +4707,7 @@ small {
   }
   .gap-x-0\@xs {
     --column-gap: 0px;
-    -moz-column-gap: 0px;
-         column-gap: 0px;
+    column-gap: 0px;
   }
   .gap-y-0\@xs {
     --row-gap: 0px;
@@ -5488,20 +5451,16 @@ small {
   }
   /* column-count */
   .column-count-1\@xs {
-    -moz-column-count: 1;
-         column-count: 1;
+    column-count: 1;
   }
   .column-count-2\@xs {
-    -moz-column-count: 2;
-         column-count: 2;
+    column-count: 2;
   }
   .column-count-3\@xs {
-    -moz-column-count: 3;
-         column-count: 3;
+    column-count: 3;
   }
   .column-count-4\@xs {
-    -moz-column-count: 4;
-         column-count: 4;
+    column-count: 4;
   }
   /* width */
   .width-4xs\@xs {
@@ -6045,7 +6004,7 @@ small {
   .offset-11\@sm {
     --column-offset: 11;
   }
-  .offset-1, .offset-2, .offset-3, .offset-4, .offset-5, .offset-6, .offset-7, .offset-8, .offset-9, .offset-10, .offset-11 {
+  .offset-1\@sm, .offset-2\@sm, .offset-3\@sm, .offset-4\@sm, .offset-5\@sm, .offset-6\@sm, .offset-7\@sm, .offset-8\@sm, .offset-9\@sm, .offset-10\@sm, .offset-11\@sm {
     margin-left: calc((100% - (var(--grid-columns) - 1) * var(--column-gap)) * var(--column-offset) / var(--grid-columns) + var(--column-offset) * var(--column-gap));
   }
   .offset-0\@sm {
@@ -6059,8 +6018,7 @@ small {
   }
   .gap-x-4xs\@sm {
     --column-gap: var(--space-4xs);
-    -moz-column-gap: var(--column-gap);
-         column-gap: var(--column-gap);
+    column-gap: var(--column-gap);
   }
   .gap-y-4xs\@sm {
     --row-gap: var(--space-4xs);
@@ -6073,8 +6031,7 @@ small {
   }
   .gap-x-3xs\@sm {
     --column-gap: var(--space-3xs);
-    -moz-column-gap: var(--column-gap);
-         column-gap: var(--column-gap);
+    column-gap: var(--column-gap);
   }
   .gap-y-3xs\@sm {
     --row-gap: var(--space-3xs);
@@ -6087,8 +6044,7 @@ small {
   }
   .gap-x-2xs\@sm {
     --column-gap: var(--space-2xs);
-    -moz-column-gap: var(--column-gap);
-         column-gap: var(--column-gap);
+    column-gap: var(--column-gap);
   }
   .gap-y-2xs\@sm {
     --row-gap: var(--space-2xs);
@@ -6101,8 +6057,7 @@ small {
   }
   .gap-x-xs\@sm {
     --column-gap: var(--space-xs);
-    -moz-column-gap: var(--column-gap);
-         column-gap: var(--column-gap);
+    column-gap: var(--column-gap);
   }
   .gap-y-xs\@sm {
     --row-gap: var(--space-xs);
@@ -6115,8 +6070,7 @@ small {
   }
   .gap-x-sm\@sm {
     --column-gap: var(--space-sm);
-    -moz-column-gap: var(--column-gap);
-         column-gap: var(--column-gap);
+    column-gap: var(--column-gap);
   }
   .gap-y-sm\@sm {
     --row-gap: var(--space-sm);
@@ -6129,8 +6083,7 @@ small {
   }
   .gap-x-md\@sm {
     --column-gap: var(--space-md);
-    -moz-column-gap: var(--column-gap);
-         column-gap: var(--column-gap);
+    column-gap: var(--column-gap);
   }
   .gap-y-md\@sm {
     --row-gap: var(--space-md);
@@ -6143,8 +6096,7 @@ small {
   }
   .gap-x-lg\@sm {
     --column-gap: var(--space-lg);
-    -moz-column-gap: var(--column-gap);
-         column-gap: var(--column-gap);
+    column-gap: var(--column-gap);
   }
   .gap-y-lg\@sm {
     --row-gap: var(--space-lg);
@@ -6157,8 +6109,7 @@ small {
   }
   .gap-x-xl\@sm {
     --column-gap: var(--space-xl);
-    -moz-column-gap: var(--column-gap);
-         column-gap: var(--column-gap);
+    column-gap: var(--column-gap);
   }
   .gap-y-xl\@sm {
     --row-gap: var(--space-xl);
@@ -6171,8 +6122,7 @@ small {
   }
   .gap-x-2xl\@sm {
     --column-gap: var(--space-2xl);
-    -moz-column-gap: var(--column-gap);
-         column-gap: var(--column-gap);
+    column-gap: var(--column-gap);
   }
   .gap-y-2xl\@sm {
     --row-gap: var(--space-2xl);
@@ -6185,8 +6135,7 @@ small {
   }
   .gap-x-3xl\@sm {
     --column-gap: var(--space-3xl);
-    -moz-column-gap: var(--column-gap);
-         column-gap: var(--column-gap);
+    column-gap: var(--column-gap);
   }
   .gap-y-3xl\@sm {
     --row-gap: var(--space-3xl);
@@ -6199,8 +6148,7 @@ small {
   }
   .gap-x-4xl\@sm {
     --column-gap: var(--space-4xl);
-    -moz-column-gap: var(--column-gap);
-         column-gap: var(--column-gap);
+    column-gap: var(--column-gap);
   }
   .gap-y-4xl\@sm {
     --row-gap: var(--space-4xl);
@@ -6213,8 +6161,7 @@ small {
   }
   .gap-x-0\@sm {
     --column-gap: 0px;
-    -moz-column-gap: 0px;
-         column-gap: 0px;
+    column-gap: 0px;
   }
   .gap-y-0\@sm {
     --row-gap: 0px;
@@ -6958,20 +6905,16 @@ small {
   }
   /* column-count */
   .column-count-1\@sm {
-    -moz-column-count: 1;
-         column-count: 1;
+    column-count: 1;
   }
   .column-count-2\@sm {
-    -moz-column-count: 2;
-         column-count: 2;
+    column-count: 2;
   }
   .column-count-3\@sm {
-    -moz-column-count: 3;
-         column-count: 3;
+    column-count: 3;
   }
   .column-count-4\@sm {
-    -moz-column-count: 4;
-         column-count: 4;
+    column-count: 4;
   }
   /* width */
   .width-4xs\@sm {
@@ -7539,7 +7482,7 @@ small {
   .offset-11\@md {
     --column-offset: 11;
   }
-  .offset-1, .offset-2, .offset-3, .offset-4, .offset-5, .offset-6, .offset-7, .offset-8, .offset-9, .offset-10, .offset-11 {
+  .offset-1\@md, .offset-2\@md, .offset-3\@md, .offset-4\@md, .offset-5\@md, .offset-6\@md, .offset-7\@md, .offset-8\@md, .offset-9\@md, .offset-10\@md, .offset-11\@md {
     margin-left: calc((100% - (var(--grid-columns) - 1) * var(--column-gap)) * var(--column-offset) / var(--grid-columns) + var(--column-offset) * var(--column-gap));
   }
   .offset-0\@md {
@@ -7553,8 +7496,7 @@ small {
   }
   .gap-x-4xs\@md {
     --column-gap: var(--space-4xs);
-    -moz-column-gap: var(--column-gap);
-         column-gap: var(--column-gap);
+    column-gap: var(--column-gap);
   }
   .gap-y-4xs\@md {
     --row-gap: var(--space-4xs);
@@ -7567,8 +7509,7 @@ small {
   }
   .gap-x-3xs\@md {
     --column-gap: var(--space-3xs);
-    -moz-column-gap: var(--column-gap);
-         column-gap: var(--column-gap);
+    column-gap: var(--column-gap);
   }
   .gap-y-3xs\@md {
     --row-gap: var(--space-3xs);
@@ -7581,8 +7522,7 @@ small {
   }
   .gap-x-2xs\@md {
     --column-gap: var(--space-2xs);
-    -moz-column-gap: var(--column-gap);
-         column-gap: var(--column-gap);
+    column-gap: var(--column-gap);
   }
   .gap-y-2xs\@md {
     --row-gap: var(--space-2xs);
@@ -7595,8 +7535,7 @@ small {
   }
   .gap-x-xs\@md {
     --column-gap: var(--space-xs);
-    -moz-column-gap: var(--column-gap);
-         column-gap: var(--column-gap);
+    column-gap: var(--column-gap);
   }
   .gap-y-xs\@md {
     --row-gap: var(--space-xs);
@@ -7609,8 +7548,7 @@ small {
   }
   .gap-x-sm\@md {
     --column-gap: var(--space-sm);
-    -moz-column-gap: var(--column-gap);
-         column-gap: var(--column-gap);
+    column-gap: var(--column-gap);
   }
   .gap-y-sm\@md {
     --row-gap: var(--space-sm);
@@ -7623,8 +7561,7 @@ small {
   }
   .gap-x-md\@md {
     --column-gap: var(--space-md);
-    -moz-column-gap: var(--column-gap);
-         column-gap: var(--column-gap);
+    column-gap: var(--column-gap);
   }
   .gap-y-md\@md {
     --row-gap: var(--space-md);
@@ -7637,8 +7574,7 @@ small {
   }
   .gap-x-lg\@md {
     --column-gap: var(--space-lg);
-    -moz-column-gap: var(--column-gap);
-         column-gap: var(--column-gap);
+    column-gap: var(--column-gap);
   }
   .gap-y-lg\@md {
     --row-gap: var(--space-lg);
@@ -7651,8 +7587,7 @@ small {
   }
   .gap-x-xl\@md {
     --column-gap: var(--space-xl);
-    -moz-column-gap: var(--column-gap);
-         column-gap: var(--column-gap);
+    column-gap: var(--column-gap);
   }
   .gap-y-xl\@md {
     --row-gap: var(--space-xl);
@@ -7665,8 +7600,7 @@ small {
   }
   .gap-x-2xl\@md {
     --column-gap: var(--space-2xl);
-    -moz-column-gap: var(--column-gap);
-         column-gap: var(--column-gap);
+    column-gap: var(--column-gap);
   }
   .gap-y-2xl\@md {
     --row-gap: var(--space-2xl);
@@ -7679,8 +7613,7 @@ small {
   }
   .gap-x-3xl\@md {
     --column-gap: var(--space-3xl);
-    -moz-column-gap: var(--column-gap);
-         column-gap: var(--column-gap);
+    column-gap: var(--column-gap);
   }
   .gap-y-3xl\@md {
     --row-gap: var(--space-3xl);
@@ -7693,8 +7626,7 @@ small {
   }
   .gap-x-4xl\@md {
     --column-gap: var(--space-4xl);
-    -moz-column-gap: var(--column-gap);
-         column-gap: var(--column-gap);
+    column-gap: var(--column-gap);
   }
   .gap-y-4xl\@md {
     --row-gap: var(--space-4xl);
@@ -7707,8 +7639,7 @@ small {
   }
   .gap-x-0\@md {
     --column-gap: 0px;
-    -moz-column-gap: 0px;
-         column-gap: 0px;
+    column-gap: 0px;
   }
   .gap-y-0\@md {
     --row-gap: 0px;
@@ -8452,20 +8383,16 @@ small {
   }
   /* column-count */
   .column-count-1\@md {
-    -moz-column-count: 1;
-         column-count: 1;
+    column-count: 1;
   }
   .column-count-2\@md {
-    -moz-column-count: 2;
-         column-count: 2;
+    column-count: 2;
   }
   .column-count-3\@md {
-    -moz-column-count: 3;
-         column-count: 3;
+    column-count: 3;
   }
   .column-count-4\@md {
-    -moz-column-count: 4;
-         column-count: 4;
+    column-count: 4;
   }
   /* width */
   .width-4xs\@md {
@@ -9009,7 +8936,7 @@ small {
   .offset-11\@lg {
     --column-offset: 11;
   }
-  .offset-1, .offset-2, .offset-3, .offset-4, .offset-5, .offset-6, .offset-7, .offset-8, .offset-9, .offset-10, .offset-11 {
+  .offset-1\@lg, .offset-2\@lg, .offset-3\@lg, .offset-4\@lg, .offset-5\@lg, .offset-6\@lg, .offset-7\@lg, .offset-8\@lg, .offset-9\@lg, .offset-10\@lg, .offset-11\@lg {
     margin-left: calc((100% - (var(--grid-columns) - 1) * var(--column-gap)) * var(--column-offset) / var(--grid-columns) + var(--column-offset) * var(--column-gap));
   }
   .offset-0\@lg {
@@ -9023,8 +8950,7 @@ small {
   }
   .gap-x-4xs\@lg {
     --column-gap: var(--space-4xs);
-    -moz-column-gap: var(--column-gap);
-         column-gap: var(--column-gap);
+    column-gap: var(--column-gap);
   }
   .gap-y-4xs\@lg {
     --row-gap: var(--space-4xs);
@@ -9037,8 +8963,7 @@ small {
   }
   .gap-x-3xs\@lg {
     --column-gap: var(--space-3xs);
-    -moz-column-gap: var(--column-gap);
-         column-gap: var(--column-gap);
+    column-gap: var(--column-gap);
   }
   .gap-y-3xs\@lg {
     --row-gap: var(--space-3xs);
@@ -9051,8 +8976,7 @@ small {
   }
   .gap-x-2xs\@lg {
     --column-gap: var(--space-2xs);
-    -moz-column-gap: var(--column-gap);
-         column-gap: var(--column-gap);
+    column-gap: var(--column-gap);
   }
   .gap-y-2xs\@lg {
     --row-gap: var(--space-2xs);
@@ -9065,8 +8989,7 @@ small {
   }
   .gap-x-xs\@lg {
     --column-gap: var(--space-xs);
-    -moz-column-gap: var(--column-gap);
-         column-gap: var(--column-gap);
+    column-gap: var(--column-gap);
   }
   .gap-y-xs\@lg {
     --row-gap: var(--space-xs);
@@ -9079,8 +9002,7 @@ small {
   }
   .gap-x-sm\@lg {
     --column-gap: var(--space-sm);
-    -moz-column-gap: var(--column-gap);
-         column-gap: var(--column-gap);
+    column-gap: var(--column-gap);
   }
   .gap-y-sm\@lg {
     --row-gap: var(--space-sm);
@@ -9093,8 +9015,7 @@ small {
   }
   .gap-x-md\@lg {
     --column-gap: var(--space-md);
-    -moz-column-gap: var(--column-gap);
-         column-gap: var(--column-gap);
+    column-gap: var(--column-gap);
   }
   .gap-y-md\@lg {
     --row-gap: var(--space-md);
@@ -9107,8 +9028,7 @@ small {
   }
   .gap-x-lg\@lg {
     --column-gap: var(--space-lg);
-    -moz-column-gap: var(--column-gap);
-         column-gap: var(--column-gap);
+    column-gap: var(--column-gap);
   }
   .gap-y-lg\@lg {
     --row-gap: var(--space-lg);
@@ -9121,8 +9041,7 @@ small {
   }
   .gap-x-xl\@lg {
     --column-gap: var(--space-xl);
-    -moz-column-gap: var(--column-gap);
-         column-gap: var(--column-gap);
+    column-gap: var(--column-gap);
   }
   .gap-y-xl\@lg {
     --row-gap: var(--space-xl);
@@ -9135,8 +9054,7 @@ small {
   }
   .gap-x-2xl\@lg {
     --column-gap: var(--space-2xl);
-    -moz-column-gap: var(--column-gap);
-         column-gap: var(--column-gap);
+    column-gap: var(--column-gap);
   }
   .gap-y-2xl\@lg {
     --row-gap: var(--space-2xl);
@@ -9149,8 +9067,7 @@ small {
   }
   .gap-x-3xl\@lg {
     --column-gap: var(--space-3xl);
-    -moz-column-gap: var(--column-gap);
-         column-gap: var(--column-gap);
+    column-gap: var(--column-gap);
   }
   .gap-y-3xl\@lg {
     --row-gap: var(--space-3xl);
@@ -9163,8 +9080,7 @@ small {
   }
   .gap-x-4xl\@lg {
     --column-gap: var(--space-4xl);
-    -moz-column-gap: var(--column-gap);
-         column-gap: var(--column-gap);
+    column-gap: var(--column-gap);
   }
   .gap-y-4xl\@lg {
     --row-gap: var(--space-4xl);
@@ -9177,8 +9093,7 @@ small {
   }
   .gap-x-0\@lg {
     --column-gap: 0px;
-    -moz-column-gap: 0px;
-         column-gap: 0px;
+    column-gap: 0px;
   }
   .gap-y-0\@lg {
     --row-gap: 0px;
@@ -9922,20 +9837,16 @@ small {
   }
   /* column-count */
   .column-count-1\@lg {
-    -moz-column-count: 1;
-         column-count: 1;
+    column-count: 1;
   }
   .column-count-2\@lg {
-    -moz-column-count: 2;
-         column-count: 2;
+    column-count: 2;
   }
   .column-count-3\@lg {
-    -moz-column-count: 3;
-         column-count: 3;
+    column-count: 3;
   }
   .column-count-4\@lg {
-    -moz-column-count: 4;
-         column-count: 4;
+    column-count: 4;
   }
   /* width */
   .width-4xs\@lg {
@@ -10479,7 +10390,7 @@ small {
   .offset-11\@xl {
     --column-offset: 11;
   }
-  .offset-1, .offset-2, .offset-3, .offset-4, .offset-5, .offset-6, .offset-7, .offset-8, .offset-9, .offset-10, .offset-11 {
+  .offset-1\@xl, .offset-2\@xl, .offset-3\@xl, .offset-4\@xl, .offset-5\@xl, .offset-6\@xl, .offset-7\@xl, .offset-8\@xl, .offset-9\@xl, .offset-10\@xl, .offset-11\@xl {
     margin-left: calc((100% - (var(--grid-columns) - 1) * var(--column-gap)) * var(--column-offset) / var(--grid-columns) + var(--column-offset) * var(--column-gap));
   }
   .offset-0\@xl {
@@ -10493,8 +10404,7 @@ small {
   }
   .gap-x-4xs\@xl {
     --column-gap: var(--space-4xs);
-    -moz-column-gap: var(--column-gap);
-         column-gap: var(--column-gap);
+    column-gap: var(--column-gap);
   }
   .gap-y-4xs\@xl {
     --row-gap: var(--space-4xs);
@@ -10507,8 +10417,7 @@ small {
   }
   .gap-x-3xs\@xl {
     --column-gap: var(--space-3xs);
-    -moz-column-gap: var(--column-gap);
-         column-gap: var(--column-gap);
+    column-gap: var(--column-gap);
   }
   .gap-y-3xs\@xl {
     --row-gap: var(--space-3xs);
@@ -10521,8 +10430,7 @@ small {
   }
   .gap-x-2xs\@xl {
     --column-gap: var(--space-2xs);
-    -moz-column-gap: var(--column-gap);
-         column-gap: var(--column-gap);
+    column-gap: var(--column-gap);
   }
   .gap-y-2xs\@xl {
     --row-gap: var(--space-2xs);
@@ -10535,8 +10443,7 @@ small {
   }
   .gap-x-xs\@xl {
     --column-gap: var(--space-xs);
-    -moz-column-gap: var(--column-gap);
-         column-gap: var(--column-gap);
+    column-gap: var(--column-gap);
   }
   .gap-y-xs\@xl {
     --row-gap: var(--space-xs);
@@ -10549,8 +10456,7 @@ small {
   }
   .gap-x-sm\@xl {
     --column-gap: var(--space-sm);
-    -moz-column-gap: var(--column-gap);
-         column-gap: var(--column-gap);
+    column-gap: var(--column-gap);
   }
   .gap-y-sm\@xl {
     --row-gap: var(--space-sm);
@@ -10563,8 +10469,7 @@ small {
   }
   .gap-x-md\@xl {
     --column-gap: var(--space-md);
-    -moz-column-gap: var(--column-gap);
-         column-gap: var(--column-gap);
+    column-gap: var(--column-gap);
   }
   .gap-y-md\@xl {
     --row-gap: var(--space-md);
@@ -10577,8 +10482,7 @@ small {
   }
   .gap-x-lg\@xl {
     --column-gap: var(--space-lg);
-    -moz-column-gap: var(--column-gap);
-         column-gap: var(--column-gap);
+    column-gap: var(--column-gap);
   }
   .gap-y-lg\@xl {
     --row-gap: var(--space-lg);
@@ -10591,8 +10495,7 @@ small {
   }
   .gap-x-xl\@xl {
     --column-gap: var(--space-xl);
-    -moz-column-gap: var(--column-gap);
-         column-gap: var(--column-gap);
+    column-gap: var(--column-gap);
   }
   .gap-y-xl\@xl {
     --row-gap: var(--space-xl);
@@ -10605,8 +10508,7 @@ small {
   }
   .gap-x-2xl\@xl {
     --column-gap: var(--space-2xl);
-    -moz-column-gap: var(--column-gap);
-         column-gap: var(--column-gap);
+    column-gap: var(--column-gap);
   }
   .gap-y-2xl\@xl {
     --row-gap: var(--space-2xl);
@@ -10619,8 +10521,7 @@ small {
   }
   .gap-x-3xl\@xl {
     --column-gap: var(--space-3xl);
-    -moz-column-gap: var(--column-gap);
-         column-gap: var(--column-gap);
+    column-gap: var(--column-gap);
   }
   .gap-y-3xl\@xl {
     --row-gap: var(--space-3xl);
@@ -10633,8 +10534,7 @@ small {
   }
   .gap-x-4xl\@xl {
     --column-gap: var(--space-4xl);
-    -moz-column-gap: var(--column-gap);
-         column-gap: var(--column-gap);
+    column-gap: var(--column-gap);
   }
   .gap-y-4xl\@xl {
     --row-gap: var(--space-4xl);
@@ -10647,8 +10547,7 @@ small {
   }
   .gap-x-0\@xl {
     --column-gap: 0px;
-    -moz-column-gap: 0px;
-         column-gap: 0px;
+    column-gap: 0px;
   }
   .gap-y-0\@xl {
     --row-gap: 0px;
@@ -11392,20 +11291,16 @@ small {
   }
   /* column-count */
   .column-count-1\@xl {
-    -moz-column-count: 1;
-         column-count: 1;
+    column-count: 1;
   }
   .column-count-2\@xl {
-    -moz-column-count: 2;
-         column-count: 2;
+    column-count: 2;
   }
   .column-count-3\@xl {
-    -moz-column-count: 3;
-         column-count: 3;
+    column-count: 3;
   }
   .column-count-4\@xl {
-    -moz-column-count: 4;
-         column-count: 4;
+    column-count: 4;
   }
   /* width */
   .width-4xs\@xl {
