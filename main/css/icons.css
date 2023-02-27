@@ -24,27 +24,27 @@
 }
 
 .icon--sm {
-  --size: 20px;
-}
-
-.icon--md {
   --size: 24px;
 }
 
-.icon--lg {
+.icon--md {
   --size: 32px;
 }
 
-.icon--xl {
+.icon--lg {
   --size: 48px;
 }
 
-.icon--2xl {
+.icon--xl {
   --size: 64px;
 }
 
-.icon--3xl {
+.icon--2xl {
   --size: 96px;
+}
+
+.icon--3xl {
+  --size: 128px;
 }
 
 /* rotate the icon infinitely */
