@@ -372,7 +372,7 @@ $box-shadow: (
 // inner-glow
 $inner-glow: (
   'glow': 'inset 0 0 0.5px 1px hsla(var(--color-white-h), var(--color-white-s), var(--color-white-l), 0.075)',
-  'glow-top': 'inset 0 0 0.5px 1px hsla(var(--color-white-h), var(--color-white-s), var(--color-white-l), 0.075)'
+  'glow-top': 'inset 0 1px 0.5px hsla(var(--color-white-h), var(--color-white-s), var(--color-white-l), 0.075)'
 ) !default;
 
 // border-radius

@@ -37,7 +37,7 @@ button, input, textarea, select, .reset {
 }
 
 a {
-  color: var(--color-primary, hsl(250, 100%, 69%));
+  color: var(--color-primary, hsl(250deg, 100%, 69%));
 }
 
 textarea {
@@ -57,7 +57,7 @@ img, video, svg {
 }
 
 [data-theme] {
-  color: var(--color-contrast-high, hsl(240, 5%, 82%));
+  color: var(--color-contrast-high, hsl(240deg, 5%, 82%));
 }
 
 html {
@@ -554,7 +554,7 @@ small {
   --shadow-xl: 0 1.5px 2.1px -6px hsla(var(--color-black-h), var(--color-black-s), var(--color-black-l), 0.009), 0 3.6px 5.2px -6px hsla(var(--color-black-h), var(--color-black-s), var(--color-black-l), 0.0115), 0 7.3px 10.6px -6px hsla(var(--color-black-h), var(--color-black-s), var(--color-black-l), 0.0125), 0 16.2px 21.9px -6px hsla(var(--color-black-h), var(--color-black-s), var(--color-black-l), 0.025), 0 46px 60px -6px hsla(var(--color-black-h), var(--color-black-s), var(--color-black-l), 0.15);
   /* inner-glow */
   --inner-glow: inset 0 0 0.5px 1px hsla(var(--color-white-h), var(--color-white-s), var(--color-white-l), 0.075);
-  --inner-glow-top: inset 0 0 0.5px 1px hsla(var(--color-white-h), var(--color-white-s), var(--color-white-l), 0.075);
+  --inner-glow-top: inset 0 1px 0.5px hsla(var(--color-white-h), var(--color-white-s), var(--color-white-l), 0.075);
   /* border-radius */
   --radius-sm: 0.1875em;
   --radius-md: 0.375em;
