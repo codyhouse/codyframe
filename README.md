@@ -56,6 +56,8 @@ Example:
 // ...
 ```
 
+Check the [documentation](https://codyhouse.co/ds/docs/framework) for a full list of configuration options.
+
 If you prefer working with CSS (without a preprocessor):
 
 ```css
