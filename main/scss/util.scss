@@ -1201,8 +1201,10 @@ $breakpoints-nr: length($breakpoints);
     box-shadow: var(--shadow-#{$name});
   }
   
-  .#{$util-prefix}shadow-#{$name}.#{$util-prefix}shadow-ring {
-    box-shadow: var(--shadow-#{$name}), var(--shadow-ring);
+  @if($name != 'ring') {
+    .#{$util-prefix}shadow-#{$name}.#{$util-prefix}shadow-ring {
+      box-shadow: var(--shadow-#{$name}), var(--shadow-ring);
+    }
   }
 }
 

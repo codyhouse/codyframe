@@ -2610,10 +2610,6 @@
   box-shadow: var(--shadow-ring);
 }
 
-.shadow-ring.shadow-ring {
-  box-shadow: var(--shadow-ring), var(--shadow-ring);
-}
-
 .shadow-xs {
   box-shadow: var(--shadow-xs);
 }
