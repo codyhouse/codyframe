@@ -63,6 +63,11 @@
     --radius-#{$name}: #{$value};
   }
 
+  /* z-index */
+  @each $name, $value in $z-index {
+    --z-index-#{$name}: #{$value};
+  }
+
   /* timing functions */
   --ease-in-out: cubic-bezier(0.645, 0.045, 0.355, 1);
   --ease-in: cubic-bezier(0.55, 0.055, 0.675, 0.19);
@@ -878,18 +883,18 @@ $responsive-font-size: map.get($font-size, "@all");
 }
 
 /* line-height */
-@each $name, $value in $line-height {
-  .#{$util-prefix}line-height-#{$name} {
-    line-height: var(--line-height-#{$name});
-  }
-}
-
 .#{$util-prefix}line-height-normal {
   line-height: normal;
 }
 
 .#{$util-prefix}line-height-1 {
   line-height: 1;
+}
+
+@each $name, $value in $line-height {
+  .#{$util-prefix}line-height-#{$name} {
+    line-height: var(--line-height-#{$name});
+  }
 }
 
 /* white-space */
@@ -1356,22 +1361,6 @@ $responsive-spacing: map.get($spacing, "@all");
 }
 
 /* z-index */
-.#{$util-prefix}z-index-header {
-  z-index: var(--z-index-header, 3);
-}
-
-.#{$util-prefix}z-index-popover {
-  z-index: var(--z-index-popover, 5);
-}
-
-.#{$util-prefix}z-index-fixed-element {
-  z-index: var(--z-index-fixed-element, 10);
-}
-
-.#{$util-prefix}z-index-overlay {
-  z-index: var(--z-index-overlay, 15);
-}
-
 .#{$util-prefix}z-index-1 {
   z-index: 1;
 }
@@ -1382,6 +1371,12 @@ $responsive-spacing: map.get($spacing, "@all");
 
 .#{$util-prefix}z-index-3 {
   z-index: 3;
+}
+
+@each $name, $value in $z-index {
+  .#{$util-prefix}z-index-#{$name} {
+    z-index: var(--z-index-#{$name});
+  }
 }
 
 /* overflow */

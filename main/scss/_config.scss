@@ -382,6 +382,14 @@ $border-radius: (
   'lg': '0.75em'
 ) !default;
 
+// z-index
+$z-index: (
+  'header': '3',
+  'popover': '5',
+  'fixed-element': '10',
+  'overlay': '15'
+) !default;
+
 // reset user agent style
 @mixin reset {
   background-color: transparent;
