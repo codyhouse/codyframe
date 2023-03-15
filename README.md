@@ -24,7 +24,10 @@ If you prefer working with SASS, create a style.scss file and import the CodyFra
 @use 'buttons';
 @use 'forms';
 
-// ← import here the CodyHouse components
+// ↓ import here the CodyHouse components
+@use 'components/_1_header' as *;
+@use 'components/_1_footer' as *;
+// ...
 
 @use 'util'; // ← utility classes
 ````
@@ -69,7 +72,10 @@ If you prefer working with CSS (without a preprocessor):
 @import 'buttons.css';
 @import 'forms.css';
 
-/* ← import here the CodyHouse components */
+/* ↓ import here the CodyHouse components */
+@import 'components/_1_header.css';
+@import 'components/_1_footer.css';
+/* ... */
 
 @import 'https://unpkg.com/codyframe/main/css/util.css'; /* ← utility classes */
 ```
@@ -96,7 +102,10 @@ If you install CodyFrame as npm module, import the reset, config, and util modul
 @use 'buttons';
 @use 'forms';
 
-// ← import here the CodyHouse components
+// ↓ import here the CodyHouse components
+@use 'components/_1_header' as *;
+@use 'components/_1_footer' as *;
+// ...
 
 @use '../../../node_modules/codyframe/main/scss/util';
 ```
