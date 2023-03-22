@@ -1388,6 +1388,26 @@ $responsive-spacing: map.get($spacing, "@all");
   overflow: hidden;
 }
 
+.#{$util-prefix}overflow-x-hidden {
+  overflow-x: hidden;
+}
+
+.#{$util-prefix}overflow-y-hidden {
+  overflow-y: hidden;
+}
+
+.#{$util-prefix}overflow-clip {
+  overflow: clip;
+}
+
+.#{$util-prefix}overflow-x-clip {
+  overflow-x: clip;
+}
+
+.#{$util-prefix}overflow-y-clip {
+  overflow-y: clip;
+}
+
 .#{$util-prefix}overflow-auto {
   overflow: auto;
 }
