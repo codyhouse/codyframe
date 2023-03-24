@@ -112,12 +112,12 @@ small {
     color: alpha(var(--color-contrast-higher), 0.25);
   }
   
-  img {
+  :where(img) {
     margin: 0 auto;
     border-radius: var(--radius-md);
   }
   
-  figcaption {
+  :where(figcaption) {
     margin-top: calc(var(--spacing) / 2);
     font-size: var(--text-sm);
     color: var(--color-contrast-low);
@@ -140,20 +140,20 @@ small {
     text-decoration: underline;
   }
   
-  mark {
+  :where(mark) {
     background-color: alpha(var(--color-accent), 0.2);
     color: inherit;
     border-radius: var(--radius-md);
     padding: 0 0.25em;
   }
   
-  blockquote {
+  :where(blockquote) {
     padding-left: 1em;
     border-left: 3px solid alpha(var(--color-contrast-higher), 0.25);
     font-style: italic;
   }
   
-  hr {
+  :where(hr) {
     margin: calc(var(--spacing) * 1.6666666667) 0;
     background: alpha(var(--color-contrast-higher), 0.1);
     height: 1px;

@@ -156,11 +156,11 @@ small {
 .text-component ol li::marker {
   color: hsla(var(--color-contrast-higher-h), var(--color-contrast-higher-s), var(--color-contrast-higher-l), 0.25);
 }
-.text-component img {
+.text-component :where(img) {
   margin: 0 auto;
   border-radius: var(--radius-md);
 }
-.text-component figcaption {
+.text-component :where(figcaption) {
   margin-top: calc(var(--spacing) / 2);
   font-size: var(--text-sm);
   color: var(--color-contrast-low);
@@ -178,18 +178,18 @@ small {
 .text-component u {
   text-decoration: underline;
 }
-.text-component mark {
+.text-component :where(mark) {
   background-color: hsla(var(--color-accent-h), var(--color-accent-s), var(--color-accent-l), 0.2);
   color: inherit;
   border-radius: var(--radius-md);
   padding: 0 0.25em;
 }
-.text-component blockquote {
+.text-component :where(blockquote) {
   padding-left: 1em;
   border-left: 3px solid hsla(var(--color-contrast-higher-h), var(--color-contrast-higher-s), var(--color-contrast-higher-l), 0.25);
   font-style: italic;
 }
-.text-component hr {
+.text-component :where(hr) {
   margin: calc(var(--spacing) * 1.6666666667) 0;
   background: hsla(var(--color-contrast-higher-h), var(--color-contrast-higher-s), var(--color-contrast-higher-l), 0.1);
   height: 1px;
