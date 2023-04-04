@@ -194,10 +194,5 @@ small {
 .text-component--relaxed {
   --heading-line-height: 1.25;
   --body-line-height: 1.625;
-  --spacing: 1.25rem;
-}
-@media (min-width: 64rem) {
-  .text-component--relaxed {
-    --spacing: 1.5rem;
-  }
+  --spacing: clamp(1.25rem, calc(0.875rem + 0.78125vw), 1.5rem);
 }

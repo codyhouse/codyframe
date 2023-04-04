@@ -64,6 +64,48 @@
   @return hsla(calc(#{$color-h} * #{$hue-multiplier}), calc(#{$color-s} * #{$saturation-multiplier}), calc(#{$color-l} * #{$lightness-multiplier}), $alpha);
 }
 
+@function to-number($value) {
+  @if type-of($value) == 'number' {
+    @return $value;
+  } @else if type-of($value) != 'string' {
+    $_: log('Value for `to-number` should be a number or a string.');
+  }
+  
+  $result: 0;
+  $digits: 0;
+  $minus: str-slice($value, 1, 1) == '-';
+  $numbers: ('0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9);
+  
+  @for $i from if($minus, 2, 1) through str-length($value) {
+    $character: str-slice($value, $i, $i);
+    
+    @if not (index(map-keys($numbers), $character) or $character == '.') {
+      @return to-length(if($minus, -$result, $result), str-slice($value, $i))
+    }
+    
+    @if $character == '.' {
+      $digits: 1; 
+    } @else if $digits == 0 {
+      $result: $result * 10 + map-get($numbers, $character);  
+    } @else {
+      $digits: $digits * 10;
+      $result: $result + math.div(map-get($numbers, $character), $digits);
+    }
+  }
+  
+  @return if($minus, -$result, $result);;
+}
+
+@function to-length($value, $unit) {
+  $units: ('px': 1px, 'cm': 1cm, 'mm': 1mm, '%': 1%, 'ch': 1ch, 'pc': 1pc, 'in': 1in, 'em': 1em, 'rem': 1rem, 'pt': 1pt, 'ex': 1ex, 'vw': 1vw, 'vh': 1vh, 'vmin': 1vmin, 'vmax': 1vmax);
+  
+  @if not index(map-keys($units), $unit) {
+    $_: log('Invalid unit `#{$unit}`.');
+  }
+  
+  @return $value * map-get($units, $unit);
+}
+
 // define HSL color variable
 @mixin define-hsl-color($color, $hue, $saturation, $lightness) {
   #{$color}-h: #{$hue};#{$color}-s: #{$saturation};#{$color}-l: #{$lightness};#{$color}: hsl(var(#{$color}-h), var(#{$color}-s), var(#{$color}-l));
@@ -94,31 +136,33 @@ $grid-columns: 12 !default;
 
 // spacing
 $spacing: (
-  '@all': (
-    '4xs': '0.125rem',
-    '3xs': '0.25rem',
-    '2xs': '0.375rem',
-    'xs': '0.5rem',
-    'sm': '0.75rem',
-    'md': '1.25rem',
-    'lg': '2rem',
-    'xl': '3.25rem',
-    '2xl': '5.25rem',
-    '3xl': '8.5rem',
-    '4xl': '13.75rem'
-  ),
-  '@md': (
-    '4xs': '0.1875rem',
-    '3xs': '0.375rem',
-    '2xs': '0.5625rem',
-    'xs': '0.75rem',
-    'sm': '1.125rem',
-    'md': '2rem',
-    'lg': '3.125rem',
-    'xl': '5.125rem',
-    '2xl': '8.25rem',
-    '3xl': '13.25rem',
-    '4xl': '21.5rem'
+  'fluid': (
+    '@sm': (
+      '4xs': '0.125rem',
+      '3xs': '0.25rem',
+      '2xs': '0.5rem',
+      'xs': '0.75rem',
+      'sm': '1rem',
+      'md': '1.5rem',
+      'lg': '2.25rem',
+      'xl': '3.5rem',
+      '2xl': '5.75rem',
+      '3xl': '9.25rem',
+      '4xl': '15rem',
+    ),
+    '@lg': (
+      '4xs': '0.125rem',
+      '3xs': '0.25rem',
+      '2xs': '0.5rem',
+      'xs': '0.75rem',
+      'sm': '1rem',
+      'md': '1.75rem',
+      'lg': '3rem',
+      'xl': '5rem',
+      '2xl': '8rem',
+      '3xl': '12.25rem',
+      '4xl': '20rem',
+    )
   )
 ) !default;
 
@@ -129,27 +173,29 @@ $font-family: (
 
 // font-size
 $font-size: (
-  '@all': (
-    'xs': '0.6875rem',
-    'sm': '0.8125rem',
-    'base': '1rem',
-    'md': '1.1875rem',
-    'lg': '1.4375rem',
-    'xl': '1.75rem',
-    '2xl': '2.0625rem',
-    '3xl': '2.5rem',
-    '4xl': '3rem'
-  ),
-  '@md': (
-    'xs': '0.75rem',
-    'sm': '0.9375rem',
-    'base': '1.125rem',
-    'md': '1.375rem',
-    'lg': '1.625rem',
-    'xl': '2rem',
-    '2xl': '2.5rem',
-    '3xl': '3rem',
-    '4xl': '3.625rem'
+  'fluid': (
+    '@sm': (
+      'xs': '0.6875rem',
+      'sm': '0.8125rem',
+      'base': '1rem',
+      'md': '1.1875rem',
+      'lg': '1.4375rem',
+      'xl': '1.75rem',
+      '2xl': '2.0625rem',
+      '3xl': '2.5rem',
+      '4xl': '3rem',
+    ),
+    '@lg': (
+      'xs': '0.75rem',
+      'sm': '0.9375rem',
+      'base': '1.125rem',
+      'md': '1.375rem',
+      'lg': '1.625rem',
+      'xl': '2rem',
+      '2xl': '2.5rem',
+      '3xl': '3rem',
+      '4xl': '3.625rem',
+    )
   )
 ) !default;
 

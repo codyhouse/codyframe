@@ -256,12 +256,7 @@ small {
 .text-component--relaxed {
   --heading-line-height: 1.25;
   --body-line-height: 1.625;
-  --spacing: 1.25rem;
-}
-@media (min-width: 64rem) {
-  .text-component--relaxed {
-    --spacing: 1.5rem;
-  }
+  --spacing: clamp(1.25rem, calc(0.875rem + 0.78125vw), 1.5rem);
 }
 
 .icon {
@@ -507,29 +502,29 @@ small {
 /* variables */
 :root {
   /* spacing */
-  --space-4xs: 0.125rem;
-  --space-3xs: 0.25rem;
-  --space-2xs: 0.375rem;
-  --space-xs: 0.5rem;
-  --space-sm: 0.75rem;
-  --space-md: 1.25rem;
-  --space-lg: 2rem;
-  --space-xl: 3.25rem;
-  --space-2xl: 5.25rem;
-  --space-3xl: 8.5rem;
-  --space-4xl: 13.75rem;
+  --space-4xs: clamp(0.125rem, calc(0.125rem + 0vw), 0.125rem);
+  --space-3xs: clamp(0.25rem, calc(0.25rem + 0vw), 0.25rem);
+  --space-2xs: clamp(0.5rem, calc(0.5rem + 0vw), 0.5rem);
+  --space-xs: clamp(0.75rem, calc(0.75rem + 0vw), 0.75rem);
+  --space-sm: clamp(1rem, calc(1rem + 0vw), 1rem);
+  --space-md: clamp(1.5rem, calc(1.125rem + 0.78125vw), 1.75rem);
+  --space-lg: clamp(2.25rem, calc(1.125rem + 2.34375vw), 3rem);
+  --space-xl: clamp(3.5rem, calc(1.25rem + 4.6875vw), 5rem);
+  --space-2xl: clamp(5.75rem, calc(2.375rem + 7.03125vw), 8rem);
+  --space-3xl: clamp(9.25rem, calc(4.75rem + 9.375vw), 12.25rem);
+  --space-4xl: clamp(15rem, calc(7.5rem + 15.625vw), 20rem);
   /* font-family */
   --font-primary: system-ui, sans-serif;
   /* font-size */
-  --text-xs: 0.6875rem;
-  --text-sm: 0.8125rem;
-  --text-base: 1rem;
-  --text-md: 1.1875rem;
-  --text-lg: 1.4375rem;
-  --text-xl: 1.75rem;
-  --text-2xl: 2.0625rem;
-  --text-3xl: 2.5rem;
-  --text-4xl: 3rem;
+  --text-xs: clamp(0.6875rem, calc(0.59375rem + 0.1953125vw), 0.75rem);
+  --text-sm: clamp(0.8125rem, calc(0.625rem + 0.390625vw), 0.9375rem);
+  --text-base: clamp(1rem, calc(0.8125rem + 0.390625vw), 1.125rem);
+  --text-md: clamp(1.1875rem, calc(0.90625rem + 0.5859375vw), 1.375rem);
+  --text-lg: clamp(1.4375rem, calc(1.15625rem + 0.5859375vw), 1.625rem);
+  --text-xl: clamp(1.75rem, calc(1.375rem + 0.78125vw), 2rem);
+  --text-2xl: clamp(2.0625rem, calc(1.40625rem + 1.3671875vw), 2.5rem);
+  --text-3xl: clamp(2.5rem, calc(1.75rem + 1.5625vw), 3rem);
+  --text-4xl: clamp(3rem, calc(2.0625rem + 1.953125vw), 3.625rem);
   /* line-height */
   --line-height-xs: 1.1;
   --line-height-sm: 1.2;
@@ -7361,30 +7356,6 @@ small {
   }
 }
 @media (min-width: 64rem) {
-  :root {
-    /* spacing */
-    --space-4xs: 0.1875rem;
-    --space-3xs: 0.375rem;
-    --space-2xs: 0.5625rem;
-    --space-xs: 0.75rem;
-    --space-sm: 1.125rem;
-    --space-md: 2rem;
-    --space-lg: 3.125rem;
-    --space-xl: 5.125rem;
-    --space-2xl: 8.25rem;
-    --space-3xl: 13.25rem;
-    --space-4xl: 21.5rem;
-    /* font-size */
-    --text-xs: 0.75rem;
-    --text-sm: 0.9375rem;
-    --text-base: 1.125rem;
-    --text-md: 1.375rem;
-    --text-lg: 1.625rem;
-    --text-xl: 2rem;
-    --text-2xl: 2.5rem;
-    --text-3xl: 3rem;
-    --text-4xl: 3.625rem;
-  }
   /* grid */
   .grid-col-1\@md {
     --grid-columns: 1;
