@@ -340,7 +340,6 @@ small {
   font-size: 1em;
   font-weight: 500;
   color: var(--color-contrast-higher);
-  text-decoration: none;
   line-height: 1.2;
   cursor: pointer;
   transition: 0.2s;
@@ -441,7 +440,7 @@ small {
 
 /* a button containing (only) an icon */
 .btn--icon {
-  padding: 0.5rem;
+  padding: var(--space-2xs);
 }
 
 .form-control {
