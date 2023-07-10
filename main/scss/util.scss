@@ -1019,6 +1019,19 @@ $fluid-font-size: map.get($font-size, "fluid");
   text-shadow: none;
 }
 
+/* text-indent */
+.#{$util-prefix}text-indent-sm {
+  text-indent: 0.5em;
+}
+
+.#{$util-prefix}text-indent-md {
+  text-indent: 1em;
+}
+
+.#{$util-prefix}text-indent-lg {
+  text-indent: 1.5em;
+}
+
 /* line-height */
 .#{$util-prefix}line-height-normal {
   line-height: normal;
@@ -1032,6 +1045,35 @@ $fluid-font-size: map.get($font-size, "fluid");
   .#{$util-prefix}line-height-#{$name} {
     line-height: var(--line-height-#{$name});
   }
+}
+
+/* line-clamp */
+.#{$util-prefix}line-clamp-1 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
+.#{$util-prefix}line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.#{$util-prefix}line-clamp-3 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.#{$util-prefix}line-clamp-4 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
 }
 
 /* white-space */
@@ -1054,6 +1096,11 @@ $fluid-font-size: map.get($font-size, "fluid");
 
 .#{$util-prefix}column-count-4 {
   column-count: 4;
+}
+
+/* list-style */
+.#{$util-prefix}list-style-none {
+  list-style: none;
 }
 
 /* cursor */
@@ -1173,6 +1220,7 @@ $color-labels: map.get($colors, "default");
 [class^="#{$util-prefix}color-gradient"], [class*=" #{$util-prefix}color-gradient"] {
   color: transparent !important;
   background-clip: text;
+  opacity: var(--color-opacity);
 }
 
 $grad-labels: map.get($gradients, "default");
@@ -1182,17 +1230,37 @@ $grad-labels: map.get($gradients, "default");
     @each $variation, $hsl in $variation-array {
       $list: list.append($list, #{$variation});
     }
+    $linear-gradient-stops: '';
+    @for $i from 1 through length($list) {
+      $linear-gradient-stops: $linear-gradient-stops + var(--gradient-#{$main-color}-#{list.nth($list, $i)});
+      @if($i < length($list)) {
+        $linear-gradient-stops: $linear-gradient-stops + ', '
+      }
+    }
+
+    .#{$util-prefix}color-gradient-#{$main-color}-top-left {
+      background-image: linear-gradient(315deg, #{$linear-gradient-stops});
+    }
     .#{$util-prefix}color-gradient-#{$main-color}-top {
-      background-image: linear-gradient(0deg, var(--gradient-#{$main-color}-#{list.nth($list, 1)}), var(--gradient-#{$main-color}-#{list.nth($list, 2)}));
+      background-image: linear-gradient(0deg, #{$linear-gradient-stops});
+    }
+    .#{$util-prefix}color-gradient-#{$main-color}-top-right {
+      background-image: linear-gradient(45deg, #{$linear-gradient-stops});
     }
     .#{$util-prefix}color-gradient-#{$main-color}-right {
-      background-image: linear-gradient(90deg, var(--gradient-#{$main-color}-#{list.nth($list, 1)}), var(--gradient-#{$main-color}-#{list.nth($list, 2)}));
+      background-image: linear-gradient(90deg, #{$linear-gradient-stops});
+    }
+    .#{$util-prefix}color-gradient-#{$main-color}-bottom-right {
+      background-image: linear-gradient(135deg, #{$linear-gradient-stops});
     }
     .#{$util-prefix}color-gradient-#{$main-color}-bottom {
-      background-image: linear-gradient(180deg, var(--gradient-#{$main-color}-#{list.nth($list, 1)}), var(--gradient-#{$main-color}-#{list.nth($list, 2)}));
+      background-image: linear-gradient(180deg, #{$linear-gradient-stops});
+    }
+    .#{$util-prefix}color-gradient-#{$main-color}-bottom-left {
+      background-image: linear-gradient(225deg, #{$linear-gradient-stops});
     }
     .#{$util-prefix}color-gradient-#{$main-color}-left {
-      background-image: linear-gradient(270deg, var(--gradient-#{$main-color}-#{list.nth($list, 1)}), var(--gradient-#{$main-color}-#{list.nth($list, 2)}));
+      background-image: linear-gradient(270deg, #{$linear-gradient-stops});
     }
   }
 }
@@ -1760,25 +1828,69 @@ $color-labels: map.get($colors, "default");
 }
 $grad-labels: map.get($gradients, "default");
 @if $grad-labels {
+  @property --border-gradient-angle {
+    syntax: '<angle>';
+    inherits: true;
+    initial-value: 0deg;
+  }
+
+  [class^=#{$util-prefix}border-gradient-], [class*=" #{$util-prefix}border-gradient-"] {
+    --border-gradient-angle: 0deg;
+    position: relative;
+    border-color: transparent;
+  
+    &::before {
+      content: '';
+      position: absolute;
+      z-index: 1;
+      inset: calc(var(--border-width) * -1);
+      border: var(--border-width) solid transparent;
+      border-radius: inherit;
+      mask: linear-gradient(black, black) padding-box, linear-gradient(black, black);
+      mask-composite: exclude;
+      opacity: var(--border-opacity);
+      pointer-events: none;
+    }
+  }
+
   @each $main-color, $variation-array in $grad-labels {
     $list: ();
     @each $variation, $hsl in $variation-array {
       $list: list.append($list, #{$variation});
     }
-    .#{$util-prefix}border-gradient-#{$main-color} {
-      border-image: radial-gradient(var(--gradient-#{$main-color}-#{list.nth($list, 1)}), var(--gradient-#{$main-color}-#{list.nth($list, 2)})) 1;
+    $gradient-stops: '';
+    @for $i from 1 through length($list) {
+      $gradient-stops: $gradient-stops + var(--gradient-#{$main-color}-#{list.nth($list, $i)});
+      @if($i < length($list)) {
+        $gradient-stops: $gradient-stops + ', '
+      }
     }
-    .#{$util-prefix}border-gradient-#{$main-color}-top {
-      border-image: linear-gradient(0deg, var(--gradient-#{$main-color}-#{list.nth($list, 1)}), var(--gradient-#{$main-color}-#{list.nth($list, 2)})) 1;
+    .#{$util-prefix}border-gradient-#{$main-color}::before {
+      background: radial-gradient(#{$gradient-stops}) border-box;
+    }
+    .#{$util-prefix}border-gradient-#{$main-color}-top::before, .#{$util-prefix}border-gradient-#{$main-color}-top-right::before, .#{$util-prefix}border-gradient-#{$main-color}-right::before, .#{$util-prefix}border-gradient-#{$main-color}-bottom-right::before, .#{$util-prefix}border-gradient-#{$main-color}-bottom::before, .#{$util-prefix}border-gradient-#{$main-color}-bottom-left::before,  .#{$util-prefix}border-gradient-#{$main-color}-left::before, .#{$util-prefix}border-gradient-#{$main-color}-top-left::before {
+      background: linear-gradient(var(--border-gradient-angle), #{$gradient-stops}) border-box;
+    }
+    .#{$util-prefix}border-gradient-#{$main-color}-top-right {
+      --border-gradient-angle: 45deg;
     }
     .#{$util-prefix}border-gradient-#{$main-color}-right {
-      border-image: linear-gradient(90deg, var(--gradient-#{$main-color}-#{list.nth($list, 1)}), var(--gradient-#{$main-color}-#{list.nth($list, 2)})) 1;
+      --border-gradient-angle: 90deg;
+    }
+    .#{$util-prefix}border-gradient-#{$main-color}-bottom-right {
+      --border-gradient-angle: 135deg;
     }
     .#{$util-prefix}border-gradient-#{$main-color}-bottom {
-      border-image: linear-gradient(180deg, var(--gradient-#{$main-color}-#{list.nth($list, 1)}), var(--gradient-#{$main-color}-#{list.nth($list, 2)})) 1;
+      --border-gradient-angle: 180deg;
+    }
+    .#{$util-prefix}border-gradient-#{$main-color}-bottom-left {
+      --border-gradient-angle: 225deg;
     }
     .#{$util-prefix}border-gradient-#{$main-color}-left {
-      border-image: linear-gradient(270deg, var(--gradient-#{$main-color}-#{list.nth($list, 1)}), var(--gradient-#{$main-color}-#{list.nth($list, 2)})) 1;
+      --border-gradient-angle: 270deg;
+    }
+    .#{$util-prefix}border-gradient-#{$main-color}-top-left {
+      --border-gradient-angle: 315deg;
     }
   }
 }
@@ -1923,20 +2035,39 @@ $grad-labels: map.get($gradients, "default");
     @each $variation, $hsl in $variation-array {
       $list: list.append($list, #{$variation});
     }
+    $gradient-stops: '';
+    @for $i from 1 through length($list) {
+      $gradient-stops: $gradient-stops + var(--gradient-#{$main-color}-#{list.nth($list, $i)});
+      @if($i < length($list)) {
+        $gradient-stops: $gradient-stops + ', '
+      }
+    }
     .#{$util-prefix}bg-gradient-#{$main-color} {
-      background-image: radial-gradient(var(--gradient-#{$main-color}-#{list.nth($list, 1)}), var(--gradient-#{$main-color}-#{list.nth($list, 2)}));
+      background-image: radial-gradient(#{$gradient-stops});
+    }
+    .#{$util-prefix}bg-gradient-#{$main-color}-top-left {
+      background-image: linear-gradient(315deg, #{$gradient-stops});
     }
     .#{$util-prefix}bg-gradient-#{$main-color}-top {
-      background-image: linear-gradient(0deg, var(--gradient-#{$main-color}-#{list.nth($list, 1)}), var(--gradient-#{$main-color}-#{list.nth($list, 2)}));
+      background-image: linear-gradient(0deg, #{$gradient-stops});
+    }
+    .#{$util-prefix}bg-gradient-#{$main-color}-top-right {
+      background-image: linear-gradient(45deg, #{$gradient-stops});
     }
     .#{$util-prefix}bg-gradient-#{$main-color}-right {
-      background-image: linear-gradient(90deg, var(--gradient-#{$main-color}-#{list.nth($list, 1)}), var(--gradient-#{$main-color}-#{list.nth($list, 2)}));
+      background-image: linear-gradient(90deg, #{$gradient-stops});
+    }
+    .#{$util-prefix}bg-gradient-#{$main-color}-bottom-right {
+      background-image: linear-gradient(135deg, #{$gradient-stops});
     }
     .#{$util-prefix}bg-gradient-#{$main-color}-bottom {
-      background-image: linear-gradient(180deg, var(--gradient-#{$main-color}-#{list.nth($list, 1)}), var(--gradient-#{$main-color}-#{list.nth($list, 2)}));
+      background-image: linear-gradient(180deg, #{$gradient-stops});
+    }
+    .#{$util-prefix}bg-gradient-#{$main-color}-bottom-left {
+      background-image: linear-gradient(225deg, #{$gradient-stops});
     }
     .#{$util-prefix}bg-gradient-#{$main-color}-left {
-      background-image: linear-gradient(270deg, var(--gradient-#{$main-color}-#{list.nth($list, 1)}), var(--gradient-#{$main-color}-#{list.nth($list, 2)}));
+      background-image: linear-gradient(270deg, #{$gradient-stops});
     }
   }
 }

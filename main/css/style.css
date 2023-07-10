@@ -146,10 +146,10 @@ small {
 .text-component ol :where(ul, ol) {
   padding-left: 1em;
 }
-.text-component ul {
+.text-component :where(ul) {
   list-style-type: disc;
 }
-.text-component ol {
+.text-component :where(ol) {
   list-style-type: decimal;
 }
 .text-component ul li::marker,
@@ -213,26 +213,26 @@ small {
 
 @media (min-width: 48rem) {
   .text-component__item-left,
-  .text-component__item-right,
-  .text-component__item-overflow-left,
-  .text-component__item-overflow-right {
+.text-component__item-right,
+.text-component__item-overflow-left,
+.text-component__item-overflow-right {
     width: 45%;
   }
   .text-component__item-left,
-  .text-component__item-overflow-left {
+.text-component__item-overflow-left {
     float: left;
     margin-right: var(--spacing);
   }
   .text-component__item-right,
-  .text-component__item-overflow-right {
+.text-component__item-overflow-right {
     float: right;
     margin-left: var(--spacing);
   }
 }
 @media (min-width: 80rem) {
   .text-component__item-overflow,
-  .text-component__item-overflow-left,
-  .text-component__item-overflow-right {
+.text-component__item-overflow-left,
+.text-component__item-overflow-right {
     --overflow-size: 8rem;
   }
   .text-component__item-overflow {
@@ -2453,6 +2453,19 @@ small {
   text-shadow: none;
 }
 
+/* text-indent */
+.text-indent-sm {
+  text-indent: 0.5em;
+}
+
+.text-indent-md {
+  text-indent: 1em;
+}
+
+.text-indent-lg {
+  text-indent: 1.5em;
+}
+
 /* line-height */
 .line-height-normal {
   line-height: normal;
@@ -2482,6 +2495,35 @@ small {
   line-height: var(--line-height-xl);
 }
 
+/* line-clamp */
+.line-clamp-1 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
+.line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.line-clamp-3 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.line-clamp-4 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+}
+
 /* white-space */
 .ws-nowrap {
   white-space: nowrap;
@@ -2502,6 +2544,11 @@ small {
 
 .column-count-4 {
   column-count: 4;
+}
+
+/* list-style */
+.list-style-none {
+  list-style: none;
 }
 
 /* cursor */
@@ -2759,6 +2806,7 @@ small {
   color: transparent !important;
   -webkit-background-clip: text;
           background-clip: text;
+  opacity: var(--color-opacity);
 }
 
 /* width */

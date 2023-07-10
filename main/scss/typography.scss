@@ -99,11 +99,11 @@ small {
     padding-left: 1em;
   }
   
-  ul {
+  :where(ul) {
     list-style-type: disc;
   }
   
-  ol {
+  :where(ol) {
     list-style-type: decimal;
   }
   
