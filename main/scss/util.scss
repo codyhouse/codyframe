@@ -511,23 +511,32 @@ $fluid-responsive-spacing: map.get($spacing, "fluid");
     .#{$util-prefix}margin-#{$name} {
       margin: var(--space-#{$name});
     }
-  
-    .#{$util-prefix}margin-top-#{$name} {
-      margin-top: var(--space-#{$name});
+  }
+} @else if($fluid-responsive-spacing) {
+  $fluid-responsive-spacing-list: map.get($fluid-responsive-spacing, list.nth(list.nth($fluid-responsive-spacing, 1), 1));
+  @each $name, $value in $fluid-responsive-spacing-list {
+    .#{$util-prefix}margin-#{$name} {
+      margin: var(--space-#{$name});
     }
-  
-    .#{$util-prefix}margin-right-#{$name} {
-      margin-right: var(--space-#{$name});
+  }
+} @else {
+  @each $name, $value in $spacing {
+    .#{$util-prefix}margin-#{$name} {
+      margin: var(--space-#{$name});
     }
-  
-    .#{$util-prefix}margin-bottom-#{$name} {
-      margin-bottom: var(--space-#{$name});
-    }
-  
-    .#{$util-prefix}margin-left-#{$name} {
-      margin-left: var(--space-#{$name});
-    }
-  
+  }
+}
+
+.#{$util-prefix}margin-auto {
+  margin: auto;
+}
+
+.#{$util-prefix}margin-0 {
+  margin: 0;
+}
+
+@if $responsive-spacing {
+  @each $name, $value in $responsive-spacing {  
     .#{$util-prefix}margin-y-#{$name} {
       margin-top: var(--space-#{$name});
       margin-bottom: var(--space-#{$name});
@@ -541,26 +550,6 @@ $fluid-responsive-spacing: map.get($spacing, "fluid");
 } @else if($fluid-responsive-spacing) {
   $fluid-responsive-spacing-list: map.get($fluid-responsive-spacing, list.nth(list.nth($fluid-responsive-spacing, 1), 1));
   @each $name, $value in $fluid-responsive-spacing-list {
-    .#{$util-prefix}margin-#{$name} {
-      margin: var(--space-#{$name});
-    }
-  
-    .#{$util-prefix}margin-top-#{$name} {
-      margin-top: var(--space-#{$name});
-    }
-  
-    .#{$util-prefix}margin-right-#{$name} {
-      margin-right: var(--space-#{$name});
-    }
-  
-    .#{$util-prefix}margin-bottom-#{$name} {
-      margin-bottom: var(--space-#{$name});
-    }
-  
-    .#{$util-prefix}margin-left-#{$name} {
-      margin-left: var(--space-#{$name});
-    }
-  
     .#{$util-prefix}margin-y-#{$name} {
       margin-top: var(--space-#{$name});
       margin-bottom: var(--space-#{$name});
@@ -573,26 +562,6 @@ $fluid-responsive-spacing: map.get($spacing, "fluid");
   }
 } @else {
   @each $name, $value in $spacing {
-    .#{$util-prefix}margin-#{$name} {
-      margin: var(--space-#{$name});
-    }
-  
-    .#{$util-prefix}margin-top-#{$name} {
-      margin-top: var(--space-#{$name});
-    }
-  
-    .#{$util-prefix}margin-right-#{$name} {
-      margin-right: var(--space-#{$name});
-    }
-  
-    .#{$util-prefix}margin-bottom-#{$name} {
-      margin-bottom: var(--space-#{$name});
-    }
-  
-    .#{$util-prefix}margin-left-#{$name} {
-      margin-left: var(--space-#{$name});
-    }
-  
     .#{$util-prefix}margin-y-#{$name} {
       margin-top: var(--space-#{$name});
       margin-bottom: var(--space-#{$name});
@@ -603,14 +572,6 @@ $fluid-responsive-spacing: map.get($spacing, "fluid");
       margin-left: var(--space-#{$name});
     }
   }
-}
-
-.#{$util-prefix}margin-auto {
-  margin: auto;
-}
-
-.#{$util-prefix}margin-0 {
-  margin: 0;
 }
 
 .#{$util-prefix}margin-y-auto {
@@ -631,6 +592,63 @@ $fluid-responsive-spacing: map.get($spacing, "fluid");
 .#{$util-prefix}margin-x-0 {
   margin-left: 0;
   margin-right: 0;
+}
+
+@if $responsive-spacing {
+  @each $name, $value in $responsive-spacing {
+    .#{$util-prefix}margin-top-#{$name} {
+      margin-top: var(--space-#{$name});
+    }
+  
+    .#{$util-prefix}margin-right-#{$name} {
+      margin-right: var(--space-#{$name});
+    }
+  
+    .#{$util-prefix}margin-bottom-#{$name} {
+      margin-bottom: var(--space-#{$name});
+    }
+  
+    .#{$util-prefix}margin-left-#{$name} {
+      margin-left: var(--space-#{$name});
+    }
+  }
+} @else if($fluid-responsive-spacing) {
+  $fluid-responsive-spacing-list: map.get($fluid-responsive-spacing, list.nth(list.nth($fluid-responsive-spacing, 1), 1));
+  @each $name, $value in $fluid-responsive-spacing-list {
+    .#{$util-prefix}margin-top-#{$name} {
+      margin-top: var(--space-#{$name});
+    }
+  
+    .#{$util-prefix}margin-right-#{$name} {
+      margin-right: var(--space-#{$name});
+    }
+  
+    .#{$util-prefix}margin-bottom-#{$name} {
+      margin-bottom: var(--space-#{$name});
+    }
+  
+    .#{$util-prefix}margin-left-#{$name} {
+      margin-left: var(--space-#{$name});
+    }
+  }
+} @else {
+  @each $name, $value in $spacing {
+    .#{$util-prefix}margin-top-#{$name} {
+      margin-top: var(--space-#{$name});
+    }
+  
+    .#{$util-prefix}margin-right-#{$name} {
+      margin-right: var(--space-#{$name});
+    }
+  
+    .#{$util-prefix}margin-bottom-#{$name} {
+      margin-bottom: var(--space-#{$name});
+    }
+  
+    .#{$util-prefix}margin-left-#{$name} {
+      margin-left: var(--space-#{$name});
+    }
+  }
 }
 
 .#{$util-prefix}margin-top-auto {
@@ -673,23 +691,28 @@ $fluid-responsive-spacing: map.get($spacing, "fluid");
     .#{$util-prefix}padding-#{$name} {
       padding: var(--space-#{$name});
     }
-  
-    .#{$util-prefix}padding-top-#{$name} {
-      padding-top: var(--space-#{$name});
+  }
+} @else if($fluid-responsive-spacing) {
+  $fluid-responsive-spacing-list: map.get($fluid-responsive-spacing, list.nth(list.nth($fluid-responsive-spacing, 1), 1));
+  @each $name, $value in $fluid-responsive-spacing-list {
+    .#{$util-prefix}padding-#{$name} {
+      padding: var(--space-#{$name});
     }
-  
-    .#{$util-prefix}padding-right-#{$name} {
-      padding-right: var(--space-#{$name});
+  }
+} @else {
+  @each $name, $value in $spacing {
+    .#{$util-prefix}padding-#{$name} {
+      padding: var(--space-#{$name});
     }
-  
-    .#{$util-prefix}padding-bottom-#{$name} {
-      padding-bottom: var(--space-#{$name});
-    }
-  
-    .#{$util-prefix}padding-left-#{$name} {
-      padding-left: var(--space-#{$name});
-    }
-  
+  }
+}
+
+.#{$util-prefix}padding-0 {
+  padding: 0;
+}
+
+@if $responsive-spacing {
+  @each $name, $value in $responsive-spacing {
     .#{$util-prefix}padding-y-#{$name} {
       padding-top: var(--space-#{$name});
       padding-bottom: var(--space-#{$name});
@@ -703,26 +726,6 @@ $fluid-responsive-spacing: map.get($spacing, "fluid");
 } @else if($fluid-responsive-spacing) {
   $fluid-responsive-spacing-list: map.get($fluid-responsive-spacing, list.nth(list.nth($fluid-responsive-spacing, 1), 1));
   @each $name, $value in $fluid-responsive-spacing-list {
-    .#{$util-prefix}padding-#{$name} {
-      padding: var(--space-#{$name});
-    }
-  
-    .#{$util-prefix}padding-top-#{$name} {
-      padding-top: var(--space-#{$name});
-    }
-  
-    .#{$util-prefix}padding-right-#{$name} {
-      padding-right: var(--space-#{$name});
-    }
-  
-    .#{$util-prefix}padding-bottom-#{$name} {
-      padding-bottom: var(--space-#{$name});
-    }
-  
-    .#{$util-prefix}padding-left-#{$name} {
-      padding-left: var(--space-#{$name});
-    }
-  
     .#{$util-prefix}padding-y-#{$name} {
       padding-top: var(--space-#{$name});
       padding-bottom: var(--space-#{$name});
@@ -735,10 +738,30 @@ $fluid-responsive-spacing: map.get($spacing, "fluid");
   }
 } @else {
   @each $name, $value in $spacing {
-    .#{$util-prefix}padding-#{$name} {
-      padding: var(--space-#{$name});
+    .#{$util-prefix}padding-y-#{$name} {
+      padding-top: var(--space-#{$name});
+      padding-bottom: var(--space-#{$name});
     }
   
+    .#{$util-prefix}padding-x-#{$name} {
+      padding-right: var(--space-#{$name});
+      padding-left: var(--space-#{$name});
+    }
+  }
+}
+
+.#{$util-prefix}padding-y-0 {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.#{$util-prefix}padding-x-0 {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+@if $responsive-spacing {
+  @each $name, $value in $responsive-spacing {
     .#{$util-prefix}padding-top-#{$name} {
       padding-top: var(--space-#{$name});
     }
@@ -754,31 +777,44 @@ $fluid-responsive-spacing: map.get($spacing, "fluid");
     .#{$util-prefix}padding-left-#{$name} {
       padding-left: var(--space-#{$name});
     }
-  
-    .#{$util-prefix}padding-y-#{$name} {
+  }
+} @else if($fluid-responsive-spacing) {
+  $fluid-responsive-spacing-list: map.get($fluid-responsive-spacing, list.nth(list.nth($fluid-responsive-spacing, 1), 1));
+  @each $name, $value in $fluid-responsive-spacing-list {
+    .#{$util-prefix}padding-top-#{$name} {
       padding-top: var(--space-#{$name});
+    }
+  
+    .#{$util-prefix}padding-right-#{$name} {
+      padding-right: var(--space-#{$name});
+    }
+  
+    .#{$util-prefix}padding-bottom-#{$name} {
       padding-bottom: var(--space-#{$name});
     }
   
-    .#{$util-prefix}padding-x-#{$name} {
-      padding-right: var(--space-#{$name});
+    .#{$util-prefix}padding-left-#{$name} {
       padding-left: var(--space-#{$name});
     }
   }
-}
-
-.#{$util-prefix}padding-0 {
-  padding: 0;
-}
-
-.#{$util-prefix}padding-y-0 {
-  padding-top: 0;
-  padding-bottom: 0;
-}
-
-.#{$util-prefix}padding-x-0 {
-  padding-left: 0;
-  padding-right: 0;
+} @else {
+  @each $name, $value in $spacing {
+    .#{$util-prefix}padding-top-#{$name} {
+      padding-top: var(--space-#{$name});
+    }
+  
+    .#{$util-prefix}padding-right-#{$name} {
+      padding-right: var(--space-#{$name});
+    }
+  
+    .#{$util-prefix}padding-bottom-#{$name} {
+      padding-bottom: var(--space-#{$name});
+    }
+  
+    .#{$util-prefix}padding-left-#{$name} {
+      padding-left: var(--space-#{$name});
+    }
+  }
 }
 
 .#{$util-prefix}padding-top-0 {
@@ -2712,23 +2748,32 @@ $grad-labels: map.get($gradients, "default");
         .#{$util-prefix}margin-#{$name}\@#{$breakpoint-name} {
           margin: var(--space-#{$name});
         }
-      
-        .#{$util-prefix}margin-top-#{$name}\@#{$breakpoint-name} {
-          margin-top: var(--space-#{$name});
+      }
+    } @else if($fluid-responsive-spacing) {
+      $fluid-responsive-spacing-list: map.get($fluid-responsive-spacing, list.nth(list.nth($fluid-responsive-spacing, 1), 1));
+      @each $name, $value in $fluid-responsive-spacing-list {
+        .#{$util-prefix}margin-#{$name}\@#{$breakpoint-name} {
+          margin: var(--space-#{$name});
         }
-      
-        .#{$util-prefix}margin-right-#{$name}\@#{$breakpoint-name} {
-          margin-right: var(--space-#{$name});
+      }
+    } @else {
+      @each $name, $value in $spacing {
+        .#{$util-prefix}margin-#{$name}\@#{$breakpoint-name} {
+          margin: var(--space-#{$name});
         }
-      
-        .#{$util-prefix}margin-bottom-#{$name}\@#{$breakpoint-name} {
-          margin-bottom: var(--space-#{$name});
-        }
-      
-        .#{$util-prefix}margin-left-#{$name}\@#{$breakpoint-name} {
-          margin-left: var(--space-#{$name});
-        }
-      
+      }
+    }
+
+    .#{$util-prefix}margin-auto\@#{$breakpoint-name} {
+      margin: auto;
+    }
+
+    .#{$util-prefix}margin-0\@#{$breakpoint-name} {
+      margin: 0;
+    }
+
+    @if $responsive-spacing {
+      @each $name, $value in $responsive-spacing {
         .#{$util-prefix}margin-y-#{$name}\@#{$breakpoint-name} {
           margin-top: var(--space-#{$name});
           margin-bottom: var(--space-#{$name});
@@ -2742,26 +2787,6 @@ $grad-labels: map.get($gradients, "default");
     } @else if($fluid-responsive-spacing) {
       $fluid-responsive-spacing-list: map.get($fluid-responsive-spacing, list.nth(list.nth($fluid-responsive-spacing, 1), 1));
       @each $name, $value in $fluid-responsive-spacing-list {
-        .#{$util-prefix}margin-#{$name}\@#{$breakpoint-name} {
-          margin: var(--space-#{$name});
-        }
-      
-        .#{$util-prefix}margin-top-#{$name}\@#{$breakpoint-name} {
-          margin-top: var(--space-#{$name});
-        }
-      
-        .#{$util-prefix}margin-right-#{$name}\@#{$breakpoint-name} {
-          margin-right: var(--space-#{$name});
-        }
-      
-        .#{$util-prefix}margin-bottom-#{$name}\@#{$breakpoint-name} {
-          margin-bottom: var(--space-#{$name});
-        }
-      
-        .#{$util-prefix}margin-left-#{$name}\@#{$breakpoint-name} {
-          margin-left: var(--space-#{$name});
-        }
-      
         .#{$util-prefix}margin-y-#{$name}\@#{$breakpoint-name} {
           margin-top: var(--space-#{$name});
           margin-bottom: var(--space-#{$name});
@@ -2774,26 +2799,6 @@ $grad-labels: map.get($gradients, "default");
       }
     } @else {
       @each $name, $value in $spacing {
-        .#{$util-prefix}margin-#{$name}\@#{$breakpoint-name} {
-          margin: var(--space-#{$name});
-        }
-      
-        .#{$util-prefix}margin-top-#{$name}\@#{$breakpoint-name} {
-          margin-top: var(--space-#{$name});
-        }
-      
-        .#{$util-prefix}margin-right-#{$name}\@#{$breakpoint-name} {
-          margin-right: var(--space-#{$name});
-        }
-      
-        .#{$util-prefix}margin-bottom-#{$name}\@#{$breakpoint-name} {
-          margin-bottom: var(--space-#{$name});
-        }
-      
-        .#{$util-prefix}margin-left-#{$name}\@#{$breakpoint-name} {
-          margin-left: var(--space-#{$name});
-        }
-      
         .#{$util-prefix}margin-y-#{$name}\@#{$breakpoint-name} {
           margin-top: var(--space-#{$name});
           margin-bottom: var(--space-#{$name});
@@ -2804,14 +2809,6 @@ $grad-labels: map.get($gradients, "default");
           margin-left: var(--space-#{$name});
         }
       }
-    }
-
-    .#{$util-prefix}margin-auto\@#{$breakpoint-name} {
-      margin: auto;
-    }
-
-    .#{$util-prefix}margin-0\@#{$breakpoint-name} {
-      margin: 0;
     }
 
     .#{$util-prefix}margin-y-auto\@#{$breakpoint-name} {
@@ -2832,6 +2829,63 @@ $grad-labels: map.get($gradients, "default");
     .#{$util-prefix}margin-x-0\@#{$breakpoint-name} {
       margin-left: 0;
       margin-right: 0;
+    }
+
+    @if $responsive-spacing {
+      @each $name, $value in $responsive-spacing {
+        .#{$util-prefix}margin-top-#{$name}\@#{$breakpoint-name} {
+          margin-top: var(--space-#{$name});
+        }
+      
+        .#{$util-prefix}margin-right-#{$name}\@#{$breakpoint-name} {
+          margin-right: var(--space-#{$name});
+        }
+      
+        .#{$util-prefix}margin-bottom-#{$name}\@#{$breakpoint-name} {
+          margin-bottom: var(--space-#{$name});
+        }
+      
+        .#{$util-prefix}margin-left-#{$name}\@#{$breakpoint-name} {
+          margin-left: var(--space-#{$name});
+        }
+      }
+    } @else if($fluid-responsive-spacing) {
+      $fluid-responsive-spacing-list: map.get($fluid-responsive-spacing, list.nth(list.nth($fluid-responsive-spacing, 1), 1));
+      @each $name, $value in $fluid-responsive-spacing-list {
+        .#{$util-prefix}margin-top-#{$name}\@#{$breakpoint-name} {
+          margin-top: var(--space-#{$name});
+        }
+      
+        .#{$util-prefix}margin-right-#{$name}\@#{$breakpoint-name} {
+          margin-right: var(--space-#{$name});
+        }
+      
+        .#{$util-prefix}margin-bottom-#{$name}\@#{$breakpoint-name} {
+          margin-bottom: var(--space-#{$name});
+        }
+      
+        .#{$util-prefix}margin-left-#{$name}\@#{$breakpoint-name} {
+          margin-left: var(--space-#{$name});
+        }
+      }
+    } @else {
+      @each $name, $value in $spacing {
+        .#{$util-prefix}margin-top-#{$name}\@#{$breakpoint-name} {
+          margin-top: var(--space-#{$name});
+        }
+      
+        .#{$util-prefix}margin-right-#{$name}\@#{$breakpoint-name} {
+          margin-right: var(--space-#{$name});
+        }
+      
+        .#{$util-prefix}margin-bottom-#{$name}\@#{$breakpoint-name} {
+          margin-bottom: var(--space-#{$name});
+        }
+      
+        .#{$util-prefix}margin-left-#{$name}\@#{$breakpoint-name} {
+          margin-left: var(--space-#{$name});
+        }
+      }
     }
 
     .#{$util-prefix}margin-top-auto\@#{$breakpoint-name} {
@@ -2874,23 +2928,28 @@ $grad-labels: map.get($gradients, "default");
         .#{$util-prefix}padding-#{$name}\@#{$breakpoint-name} {
           padding: var(--space-#{$name});
         }
-      
-        .#{$util-prefix}padding-top-#{$name}\@#{$breakpoint-name} {
-          padding-top: var(--space-#{$name});
+      }
+    } @else if($fluid-responsive-spacing) {
+      $fluid-responsive-spacing-list: map.get($fluid-responsive-spacing, list.nth(list.nth($fluid-responsive-spacing, 1), 1));
+      @each $name, $value in $fluid-responsive-spacing-list {
+        .#{$util-prefix}padding-#{$name}\@#{$breakpoint-name} {
+          padding: var(--space-#{$name});
         }
-      
-        .#{$util-prefix}padding-right-#{$name}\@#{$breakpoint-name} {
-          padding-right: var(--space-#{$name});
+      }
+    } @else {
+      @each $name, $value in $spacing {
+        .#{$util-prefix}padding-#{$name}\@#{$breakpoint-name} {
+          padding: var(--space-#{$name});
         }
-      
-        .#{$util-prefix}padding-bottom-#{$name}\@#{$breakpoint-name} {
-          padding-bottom: var(--space-#{$name});
-        }
-      
-        .#{$util-prefix}padding-left-#{$name}\@#{$breakpoint-name} {
-          padding-left: var(--space-#{$name});
-        }
-      
+      }
+    }
+
+    .#{$util-prefix}padding-0\@#{$breakpoint-name} {
+      padding: 0;
+    }
+
+    @if $responsive-spacing {
+      @each $name, $value in $responsive-spacing {
         .#{$util-prefix}padding-y-#{$name}\@#{$breakpoint-name} {
           padding-top: var(--space-#{$name});
           padding-bottom: var(--space-#{$name});
@@ -2904,26 +2963,6 @@ $grad-labels: map.get($gradients, "default");
     } @else if($fluid-responsive-spacing) {
       $fluid-responsive-spacing-list: map.get($fluid-responsive-spacing, list.nth(list.nth($fluid-responsive-spacing, 1), 1));
       @each $name, $value in $fluid-responsive-spacing-list {
-        .#{$util-prefix}padding-#{$name}\@#{$breakpoint-name} {
-          padding: var(--space-#{$name});
-        }
-      
-        .#{$util-prefix}padding-top-#{$name}\@#{$breakpoint-name} {
-          padding-top: var(--space-#{$name});
-        }
-      
-        .#{$util-prefix}padding-right-#{$name}\@#{$breakpoint-name} {
-          padding-right: var(--space-#{$name});
-        }
-      
-        .#{$util-prefix}padding-bottom-#{$name}\@#{$breakpoint-name} {
-          padding-bottom: var(--space-#{$name});
-        }
-      
-        .#{$util-prefix}padding-left-#{$name}\@#{$breakpoint-name} {
-          padding-left: var(--space-#{$name});
-        }
-      
         .#{$util-prefix}padding-y-#{$name}\@#{$breakpoint-name} {
           padding-top: var(--space-#{$name});
           padding-bottom: var(--space-#{$name});
@@ -2936,10 +2975,30 @@ $grad-labels: map.get($gradients, "default");
       }
     } @else {
       @each $name, $value in $spacing {
-        .#{$util-prefix}padding-#{$name}\@#{$breakpoint-name} {
-          padding: var(--space-#{$name});
+        .#{$util-prefix}padding-y-#{$name}\@#{$breakpoint-name} {
+          padding-top: var(--space-#{$name});
+          padding-bottom: var(--space-#{$name});
         }
       
+        .#{$util-prefix}padding-x-#{$name}\@#{$breakpoint-name} {
+          padding-right: var(--space-#{$name});
+          padding-left: var(--space-#{$name});
+        }
+      }
+    }
+
+    .#{$util-prefix}padding-y-0\@#{$breakpoint-name} {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+
+    .#{$util-prefix}padding-x-0\@#{$breakpoint-name} {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    @if $responsive-spacing {
+      @each $name, $value in $responsive-spacing {
         .#{$util-prefix}padding-top-#{$name}\@#{$breakpoint-name} {
           padding-top: var(--space-#{$name});
         }
@@ -2955,31 +3014,44 @@ $grad-labels: map.get($gradients, "default");
         .#{$util-prefix}padding-left-#{$name}\@#{$breakpoint-name} {
           padding-left: var(--space-#{$name});
         }
-      
-        .#{$util-prefix}padding-y-#{$name}\@#{$breakpoint-name} {
+      }
+    } @else if($fluid-responsive-spacing) {
+      $fluid-responsive-spacing-list: map.get($fluid-responsive-spacing, list.nth(list.nth($fluid-responsive-spacing, 1), 1));
+      @each $name, $value in $fluid-responsive-spacing-list {
+        .#{$util-prefix}padding-top-#{$name}\@#{$breakpoint-name} {
           padding-top: var(--space-#{$name});
+        }
+      
+        .#{$util-prefix}padding-right-#{$name}\@#{$breakpoint-name} {
+          padding-right: var(--space-#{$name});
+        }
+      
+        .#{$util-prefix}padding-bottom-#{$name}\@#{$breakpoint-name} {
           padding-bottom: var(--space-#{$name});
         }
       
-        .#{$util-prefix}padding-x-#{$name}\@#{$breakpoint-name} {
-          padding-right: var(--space-#{$name});
+        .#{$util-prefix}padding-left-#{$name}\@#{$breakpoint-name} {
           padding-left: var(--space-#{$name});
         }
       }
-    }
-
-    .#{$util-prefix}padding-0\@#{$breakpoint-name} {
-      padding: 0;
-    }
-
-    .#{$util-prefix}padding-y-0\@#{$breakpoint-name} {
-      padding-top: 0;
-      padding-bottom: 0;
-    }
-
-    .#{$util-prefix}padding-x-0\@#{$breakpoint-name} {
-      padding-left: 0;
-      padding-right: 0;
+    } @else {
+      @each $name, $value in $spacing {
+        .#{$util-prefix}padding-top-#{$name}\@#{$breakpoint-name} {
+          padding-top: var(--space-#{$name});
+        }
+      
+        .#{$util-prefix}padding-right-#{$name}\@#{$breakpoint-name} {
+          padding-right: var(--space-#{$name});
+        }
+      
+        .#{$util-prefix}padding-bottom-#{$name}\@#{$breakpoint-name} {
+          padding-bottom: var(--space-#{$name});
+        }
+      
+        .#{$util-prefix}padding-left-#{$name}\@#{$breakpoint-name} {
+          padding-left: var(--space-#{$name});
+        }
+      }
     }
 
     .#{$util-prefix}padding-top-0\@#{$breakpoint-name} {

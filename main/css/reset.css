@@ -32,11 +32,12 @@ button, input, textarea, select, .reset {
   border-radius: 0;
   color: inherit;
   line-height: inherit;
-  appearance: none;
+  -webkit-appearance: none;
+          appearance: none;
 }
 
 a {
-  color: var(--color-primary, hsl(250, 100%, 69%));
+  color: var(--color-primary, hsl(250deg, 100%, 69%));
 }
 
 textarea {
@@ -56,5 +57,5 @@ img, video, svg {
 }
 
 [data-theme] {
-  color: var(--color-contrast-high, hsl(240, 5%, 82%));
+  color: var(--color-contrast-high, hsl(240deg, 5%, 82%));
 }
